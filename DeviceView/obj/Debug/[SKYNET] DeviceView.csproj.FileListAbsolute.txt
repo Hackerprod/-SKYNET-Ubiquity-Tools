@@ -1,0 +1,12 @@
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\[SKYNET] DeviceView.csprojAssemblyReference.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.Devices.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.frmDevice.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.frmMain.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.Properties.Resources.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\[SKYNET] DeviceView.csproj.GenerateResource.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\[SKYNET] DeviceView.csproj.CoreCompileInputs.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Data\[SKYNET] Device View.exe.config
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Data\[SKYNET] Device View.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Data\[SKYNET] Device View.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\[SKYNET] Device View.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\[SKYNET] Device View.pdb

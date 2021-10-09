@@ -1,0 +1,37 @@
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SkynetChat.Controles.BoxTool.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmComplianceTest.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmDiscovery.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmManager.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmMain.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\frmMessage.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.Properties.Resources.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\Skynet Ubiquity Tools.csproj.GenerateResource.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\Skynet Ubiquity Tools.csproj.CoreCompileInputs.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Ubiquity Compliance Test Tool.exe.config
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Ubiquity Compliance Test Tool.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Ubiquity Compliance Test Tool.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\Ubiquity Compliance Test Tool.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\Ubiquity Compliance Test Tool.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\Skynet Ubiquity Tools.csprojAssemblyReference.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmSearch.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmConnection.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmDevice.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Ubiquity Compliance Test Tool.exe.config
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Ubiquity Compliance Test Tool.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Ubiquity Compliance Test Tool.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\Skynet Ubiquity Tools.csprojAssemblyReference.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SkynetChat.Controles.BoxTool.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmDevice.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmConnection.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmSearch.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmComplianceTest.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmDiscovery.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmManager.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmMain.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\frmMessage.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.Properties.Resources.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\Skynet Ubiquity Tools.csproj.GenerateResource.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\Skynet Ubiquity Tools.csproj.CoreCompileInputs.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\Ubiquity Compliance Test Tool.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\Ubiquity Compliance Test Tool.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\obj\Debug\DeviceView.Devices.resources

@@ -1,0 +1,23 @@
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.exe.config
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.pdb
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.frmMain.resources
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\DeviceView.csproj.GenerateResource.cache
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\DeviceView.csproj.CoreCompileInputs.cache
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\AppDeviceView.exe
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\AppDeviceView.pdb
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\DeviceView.csprojAssemblyReference.cache
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.frmDevice.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.csprojAssemblyReference.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.csproj.GenerateResource.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.csproj.CoreCompileInputs.cache
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\AppDeviceView.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\AppDeviceView.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.exe.config
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.frmDevice.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.frmMain.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.Properties.Resources.resources
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\DeviceView\obj\Debug\DeviceView.Devices.resources

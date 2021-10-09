@@ -1,0 +1,13 @@
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csprojAssemblyReference.cache
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.Properties.Resources.resources
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.GenerateResource.cache
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.csproj.CoreCompileInputs.cache
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\WindowsFormsApp2.frmMain.resources
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DeviceView.exe.config
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DeviceView.exe
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\DeviceView.pdb
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.exe.config
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.exe
+D:\Instaladores\Programación\Projects\Ubiquity Compliance Test Tools\bin\Debug\Data\AppDeviceView.pdb
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\AppDeviceView.exe
+C:\Users\Hackerprod\source\repos\WindowsFormsApp2\WindowsFormsApp2\obj\Debug\AppDeviceView.pdb

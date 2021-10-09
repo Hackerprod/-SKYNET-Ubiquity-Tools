@@ -1,0 +1,41 @@
+[
+	{
+		"mac": "78:8A:20:60:57:A9",
+		"name": "M2 - Yohel",
+		"lastip": "0.0.0.0",
+		"associd": 1,
+		"aprepeater": 0,
+		"tx": 0.0,
+		"rx": 0.0,
+		"signal": -88,
+		"rssi": 8,
+		"chainrssi": [ 9 , 0 , 0 ],
+		"rx_chainmask": 1,
+		"ccq": 0,
+		"idle": 38,
+		"tx_latency": 0,
+		"uptime": 38,
+		"ack": 27,
+		"distance": 750,
+		"txpower": 28,
+		"noisefloor": -90,
+		"tx_ratedata":[0,0,0,0,0,0,0,0,0,0],
+		"airmax": {
+			"priority": 0,
+			"quality": 0,
+			"beam": -1,
+			"signal": 0,
+			"capacity": 0
+		},
+		"stats": {
+			"rx_data": 0,
+			"rx_bytes": 0,
+			"rx_pps": 0,
+			"tx_data": 17,
+			"tx_bytes": 4964,
+			"tx_pps": 1
+		},
+		"rates": [ "MCS0", "MCS1", "MCS2", "MCS3", "MCS4", "MCS5", "MCS6", "MCS7" ],
+		"signals": [ 0, 0, 0, 0, 0, 0, 0, 0 ]
+	}
+]
