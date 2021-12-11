@@ -104,9 +104,9 @@ namespace SKYNET
             this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(200, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(227, 16);
             this.tittleLbl.TabIndex = 7;
-            this.tittleLbl.Text = "Detección de equipos en la red";
+            this.tittleLbl.Text = "Detection of device on the network";
             this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
             this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
             this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);

@@ -121,9 +121,9 @@ namespace SKYNET
             this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(367, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(302, 16);
             this.tittleLbl.TabIndex = 7;
-            this.tittleLbl.Text = "Escanear calidad de conexión de las estaciones por Canal ";
+            this.tittleLbl.Text = "Scan connection quality of stations by Channel";
             this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
             this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
             this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
@@ -359,7 +359,7 @@ namespace SKYNET
             this.LoadFromFiles.Size = new System.Drawing.Size(159, 24);
             this.LoadFromFiles.Style = FlatButton._Style.TextOnly;
             this.LoadFromFiles.TabIndex = 74;
-            this.LoadFromFiles.Text = "Cargar desde archivos";
+            this.LoadFromFiles.Text = "Upload from files";
             this.LoadFromFiles.Click += new System.EventHandler(this.Load_Click);
             // 
             // method1
@@ -378,7 +378,7 @@ namespace SKYNET
             this.method1.Size = new System.Drawing.Size(97, 24);
             this.method1.Style = FlatButton._Style.TextOnly;
             this.method1.TabIndex = 73;
-            this.method1.Text = "Buscar";
+            this.method1.Text = "Found";
             this.method1.Click += new System.EventHandler(this.Method_Click);
             this.method1.MouseLeave += new System.EventHandler(this.Mothod_MouseLeave);
             this.method1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mothod_MouseMove);

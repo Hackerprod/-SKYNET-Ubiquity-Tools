@@ -313,9 +313,9 @@ namespace SKYNET
             this.label4.ForeColor = System.Drawing.Color.Gainsboro;
             this.label4.Location = new System.Drawing.Point(180, 217);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 16);
+            this.label4.Size = new System.Drawing.Size(49, 16);
             this.label4.TabIndex = 54;
-            this.label4.Text = "Dispositivo";
+            this.label4.Text = "Device";
             // 
             // label5
             // 
@@ -335,9 +335,9 @@ namespace SKYNET
             this.label6.ForeColor = System.Drawing.Color.Gainsboro;
             this.label6.Location = new System.Drawing.Point(180, 261);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 16);
+            this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 58;
-            this.label6.Text = "Pais";
+            this.label6.Text = "Country";
             // 
             // label7
             // 
@@ -346,9 +346,9 @@ namespace SKYNET
             this.label7.ForeColor = System.Drawing.Color.Gainsboro;
             this.label7.Location = new System.Drawing.Point(180, 283);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.Size = new System.Drawing.Size(46, 16);
             this.label7.TabIndex = 59;
-            this.label7.Text = "Estado";
+            this.label7.Text = "Status";
             // 
             // lblping
             // 
@@ -393,9 +393,9 @@ namespace SKYNET
             this.Descovery.ForeColor = System.Drawing.Color.Gainsboro;
             this.Descovery.Location = new System.Drawing.Point(9, 2);
             this.Descovery.Name = "Descovery";
-            this.Descovery.Size = new System.Drawing.Size(151, 16);
+            this.Descovery.Size = new System.Drawing.Size(177, 16);
             this.Descovery.TabIndex = 54;
-            this.Descovery.Text = "Descubrir equipos en la red";
+            this.Descovery.Text = "Discover devices in the network ";
             this.Descovery.Click += new System.EventHandler(this.Descovery_Click);
             this.Descovery.MouseLeave += new System.EventHandler(this.Descovery_MouseLeave);
             this.Descovery.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Descovery_MouseMove);
@@ -482,7 +482,7 @@ namespace SKYNET
             this.AdminDevice.Size = new System.Drawing.Size(248, 29);
             this.AdminDevice.Style = FlatButton._Style.TextOnly;
             this.AdminDevice.TabIndex = 66;
-            this.AdminDevice.Text = "ADMINISTRAR EQUIPO";
+            this.AdminDevice.Text = "MANAGE DEVICE";
             this.AdminDevice.Click += new System.EventHandler(this.AdminDevice_Click);
             // 
             // ActivateCT
@@ -501,7 +501,7 @@ namespace SKYNET
             this.ActivateCT.Size = new System.Drawing.Size(248, 29);
             this.ActivateCT.Style = FlatButton._Style.TextOnly;
             this.ActivateCT.TabIndex = 29;
-            this.ActivateCT.Text = "ACTIVAR COMPLIANCE TEST";
+            this.ActivateCT.Text = "ACTIVATE COMPLIANCE TEST";
             this.ActivateCT.Click += new System.EventHandler(this.ActivateCT_Click);
             // 
             // connect
@@ -520,7 +520,7 @@ namespace SKYNET
             this.connect.Size = new System.Drawing.Size(154, 29);
             this.connect.Style = FlatButton._Style.TextOnly;
             this.connect.TabIndex = 28;
-            this.connect.Text = "CONECTAR";
+            this.connect.Text = "CONNECT";
             this.connect.Click += new System.EventHandler(this.Connect_Click);
             // 
             // planetMenu

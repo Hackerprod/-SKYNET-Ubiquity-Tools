@@ -57,27 +57,27 @@ namespace SKYNET
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.CurrentPower = new System.Windows.Forms.Label();
+            this.PowerBar = new HackerProd.Controles.HackTrackBar();
+            this.SetPower = new FlatButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.ChannelList = new FlatComboBox();
+            this.SetChannel = new FlatButton();
             this.label3 = new System.Windows.Forms.Label();
             this.DeviceLogo = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.username = new SKYNET.LoginBox();
+            this.Cambiar = new FlatButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.Stations = new FlatButton();
             this.Buscar = new FlatButton();
-            this.username = new SKYNET.LoginBox();
-            this.Cambiar = new FlatButton();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.addCT = new FlatButton();
             this.RebootDevice = new FlatButton();
-            this.SetChannel = new FlatButton();
-            this.PowerBar = new HackerProd.Controles.HackTrackBar();
-            this.SetPower = new FlatButton();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.ChannelList = new FlatComboBox();
             this.panel1.SuspendLayout();
             this.MinBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinPic)).BeginInit();
@@ -87,11 +87,11 @@ namespace SKYNET
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DeviceLogo)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -166,9 +166,9 @@ namespace SKYNET
             this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(198, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(154, 16);
             this.tittleLbl.TabIndex = 7;
-            this.tittleLbl.Text = "Administrar ajustes del equipo";
+            this.tittleLbl.Text = "Manage device settings";
             this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
             this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
             this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
@@ -228,9 +228,9 @@ namespace SKYNET
             this.StatusLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.StatusLabel.Location = new System.Drawing.Point(108, 66);
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(83, 16);
+            this.StatusLabel.Size = new System.Drawing.Size(44, 16);
             this.StatusLabel.TabIndex = 48;
-            this.StatusLabel.Text = "Desconectado";
+            this.StatusLabel.Text = "Offline";
             // 
             // CountryLabel
             // 
@@ -238,9 +238,9 @@ namespace SKYNET
             this.CountryLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.CountryLabel.Location = new System.Drawing.Point(108, 47);
             this.CountryLabel.Name = "CountryLabel";
-            this.CountryLabel.Size = new System.Drawing.Size(83, 16);
+            this.CountryLabel.Size = new System.Drawing.Size(44, 16);
             this.CountryLabel.TabIndex = 49;
-            this.CountryLabel.Text = "Desconectado";
+            this.CountryLabel.Text = "Offline";
             // 
             // FirmwareLabel
             // 
@@ -248,9 +248,9 @@ namespace SKYNET
             this.FirmwareLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.FirmwareLabel.Location = new System.Drawing.Point(108, 28);
             this.FirmwareLabel.Name = "FirmwareLabel";
-            this.FirmwareLabel.Size = new System.Drawing.Size(83, 16);
+            this.FirmwareLabel.Size = new System.Drawing.Size(44, 16);
             this.FirmwareLabel.TabIndex = 51;
-            this.FirmwareLabel.Text = "Desconectado";
+            this.FirmwareLabel.Text = "Offline";
             // 
             // DeviceLabel
             // 
@@ -258,9 +258,9 @@ namespace SKYNET
             this.DeviceLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.DeviceLabel.Location = new System.Drawing.Point(108, 10);
             this.DeviceLabel.Name = "DeviceLabel";
-            this.DeviceLabel.Size = new System.Drawing.Size(83, 16);
+            this.DeviceLabel.Size = new System.Drawing.Size(44, 16);
             this.DeviceLabel.TabIndex = 52;
-            this.DeviceLabel.Text = "Desconectado";
+            this.DeviceLabel.Text = "Offline";
             this.DeviceLabel.TextChanged += new System.EventHandler(this.DeviceLabel_TextChanged);
             // 
             // label4
@@ -270,9 +270,9 @@ namespace SKYNET
             this.label4.ForeColor = System.Drawing.Color.LightGray;
             this.label4.Location = new System.Drawing.Point(12, 10);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 16);
+            this.label4.Size = new System.Drawing.Size(48, 16);
             this.label4.TabIndex = 54;
-            this.label4.Text = "Dispositivo";
+            this.label4.Text = "device";
             // 
             // label5
             // 
@@ -292,9 +292,9 @@ namespace SKYNET
             this.label6.ForeColor = System.Drawing.Color.LightGray;
             this.label6.Location = new System.Drawing.Point(12, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 16);
+            this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 58;
-            this.label6.Text = "Pais";
+            this.label6.Text = "Country";
             // 
             // label7
             // 
@@ -303,9 +303,9 @@ namespace SKYNET
             this.label7.ForeColor = System.Drawing.Color.LightGray;
             this.label7.Location = new System.Drawing.Point(12, 66);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.Size = new System.Drawing.Size(46, 16);
             this.label7.TabIndex = 59;
-            this.label7.Text = "Estado";
+            this.label7.Text = "Status";
             // 
             // lblping
             // 
@@ -324,9 +324,9 @@ namespace SKYNET
             this.PingLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.PingLabel.Location = new System.Drawing.Point(108, 85);
             this.PingLabel.Name = "PingLabel";
-            this.PingLabel.Size = new System.Drawing.Size(83, 16);
+            this.PingLabel.Size = new System.Drawing.Size(44, 16);
             this.PingLabel.TabIndex = 62;
-            this.PingLabel.Text = "Desconectado";
+            this.PingLabel.Text = "Offline";
             // 
             // pingWorker
             // 
@@ -364,6 +364,39 @@ namespace SKYNET
             this.CurrentPower.TabIndex = 70;
             this.CurrentPower.Text = "20";
             // 
+            // PowerBar
+            // 
+            this.PowerBar.DrawValueString = false;
+            this.PowerBar.JumpToMouse = false;
+            this.PowerBar.Location = new System.Drawing.Point(8, 31);
+            this.PowerBar.Maximum = 10;
+            this.PowerBar.Minimum = 0;
+            this.PowerBar.MinimumSize = new System.Drawing.Size(47, 22);
+            this.PowerBar.Name = "PowerBar";
+            this.PowerBar.Size = new System.Drawing.Size(168, 22);
+            this.PowerBar.TabIndex = 68;
+            this.PowerBar.Value = 0;
+            this.PowerBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PowerBar_MouseMove);
+            // 
+            // SetPower
+            // 
+            this.SetPower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.SetPower.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
+            this.SetPower.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SetPower.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SetPower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
+            this.SetPower.ForeColorMouseOver = System.Drawing.Color.Empty;
+            this.SetPower.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.SetPower.ImageIcon = null;
+            this.SetPower.Location = new System.Drawing.Point(217, 29);
+            this.SetPower.Name = "SetPower";
+            this.SetPower.Rounded = false;
+            this.SetPower.Size = new System.Drawing.Size(77, 24);
+            this.SetPower.Style = FlatButton._Style.TextOnly;
+            this.SetPower.TabIndex = 68;
+            this.SetPower.Text = "Apply";
+            this.SetPower.Click += new System.EventHandler(this.SetPower_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -371,9 +404,9 @@ namespace SKYNET
             this.label1.ForeColor = System.Drawing.Color.LightGray;
             this.label1.Location = new System.Drawing.Point(5, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 16);
+            this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 68;
-            this.label1.Text = "AJUSTAR POTENCIA";
+            this.label1.Text = "ADJUST POWER";
             // 
             // panel4
             // 
@@ -386,6 +419,50 @@ namespace SKYNET
             this.panel4.Size = new System.Drawing.Size(305, 67);
             this.panel4.TabIndex = 69;
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.panel8.Controls.Add(this.ChannelList);
+            this.panel8.Location = new System.Drawing.Point(8, 25);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(203, 30);
+            this.panel8.TabIndex = 72;
+            // 
+            // ChannelList
+            // 
+            this.ChannelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.ChannelList.BackColorMouseOver = System.Drawing.Color.Empty;
+            this.ChannelList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChannelList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.ChannelList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ChannelList.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.ChannelList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
+            this.ChannelList.FormattingEnabled = true;
+            this.ChannelList.ItemHeight = 18;
+            this.ChannelList.Location = new System.Drawing.Point(-4, 3);
+            this.ChannelList.Name = "ChannelList";
+            this.ChannelList.Size = new System.Drawing.Size(203, 24);
+            this.ChannelList.TabIndex = 35;
+            // 
+            // SetChannel
+            // 
+            this.SetChannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.SetChannel.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
+            this.SetChannel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SetChannel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SetChannel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
+            this.SetChannel.ForeColorMouseOver = System.Drawing.Color.Empty;
+            this.SetChannel.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.SetChannel.ImageIcon = null;
+            this.SetChannel.Location = new System.Drawing.Point(217, 24);
+            this.SetChannel.Name = "SetChannel";
+            this.SetChannel.Rounded = false;
+            this.SetChannel.Size = new System.Drawing.Size(77, 31);
+            this.SetChannel.Style = FlatButton._Style.TextOnly;
+            this.SetChannel.TabIndex = 68;
+            this.SetChannel.Text = "Apply";
+            this.SetChannel.Click += new System.EventHandler(this.SetChannel_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -393,9 +470,9 @@ namespace SKYNET
             this.label3.ForeColor = System.Drawing.Color.LightGray;
             this.label3.Location = new System.Drawing.Point(5, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 16);
+            this.label3.Size = new System.Drawing.Size(113, 16);
             this.label3.TabIndex = 68;
-            this.label3.Text = "LISTA DE FRECUENCIAS";
+            this.label3.Text = "FREQUENCY LIST";
             // 
             // DeviceLogo
             // 
@@ -416,108 +493,6 @@ namespace SKYNET
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(287, 67);
             this.panel3.TabIndex = 74;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(5, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(206, 16);
-            this.label2.TabIndex = 68;
-            this.label2.Text = "CAMBIAR NOMBRE DE USUARIO";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.Color.LightGray;
-            this.label9.Location = new System.Drawing.Point(9, 310);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(268, 16);
-            this.label9.TabIndex = 76;
-            this.label9.Text = "No aparece Compliance Test en la lista de paises?";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.LightGray;
-            this.label8.Location = new System.Drawing.Point(5, 6);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(259, 16);
-            this.label8.TabIndex = 68;
-            this.label8.Text = "MANEJO DE LAS ESTACIONES [SOLO AP]";
-            this.label8.Click += new System.EventHandler(this.Label8_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(39)))), ((int)(((byte)(51)))));
-            this.panel6.Controls.Add(this.Stations);
-            this.panel6.Controls.Add(this.Buscar);
-            this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(323, 217);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(287, 67);
-            this.panel6.TabIndex = 75;
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.StatusLabel);
-            this.panel7.Controls.Add(this.CountryLabel);
-            this.panel7.Controls.Add(this.FirmwareLabel);
-            this.panel7.Controls.Add(this.DeviceLabel);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Controls.Add(this.DeviceLogo);
-            this.panel7.Controls.Add(this.label6);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Controls.Add(this.lblping);
-            this.panel7.Controls.Add(this.PingLabel);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(0, 26);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(618, 105);
-            this.panel7.TabIndex = 77;
-            // 
-            // Stations
-            // 
-            this.Stations.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
-            this.Stations.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
-            this.Stations.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Stations.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Stations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.Stations.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Stations.ImageAlignment = FlatButton._ImgAlign.Left;
-            this.Stations.ImageIcon = null;
-            this.Stations.Location = new System.Drawing.Point(8, 29);
-            this.Stations.Name = "Stations";
-            this.Stations.Rounded = false;
-            this.Stations.Size = new System.Drawing.Size(125, 24);
-            this.Stations.Style = FlatButton._Style.TextOnly;
-            this.Stations.TabIndex = 70;
-            this.Stations.Text = "Mostrar enlaces";
-            this.Stations.Click += new System.EventHandler(this.Stations_Click);
-            // 
-            // Buscar
-            // 
-            this.Buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
-            this.Buscar.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
-            this.Buscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.Buscar.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Buscar.ImageAlignment = FlatButton._ImgAlign.Left;
-            this.Buscar.ImageIcon = null;
-            this.Buscar.Location = new System.Drawing.Point(154, 29);
-            this.Buscar.Name = "Buscar";
-            this.Buscar.Rounded = false;
-            this.Buscar.Size = new System.Drawing.Size(125, 24);
-            this.Buscar.Style = FlatButton._Style.TextOnly;
-            this.Buscar.TabIndex = 69;
-            this.Buscar.Text = "Escanear canales";
-            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
             // 
             // username
             // 
@@ -552,8 +527,110 @@ namespace SKYNET
             this.Cambiar.Size = new System.Drawing.Size(77, 30);
             this.Cambiar.Style = FlatButton._Style.TextOnly;
             this.Cambiar.TabIndex = 68;
-            this.Cambiar.Text = "Cambiar";
+            this.Cambiar.Text = "Change";
             this.Cambiar.Click += new System.EventHandler(this.Cambiar_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.Location = new System.Drawing.Point(5, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 16);
+            this.label2.TabIndex = 68;
+            this.label2.Text = "CHANGE USERNAME";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.LightGray;
+            this.label9.Location = new System.Drawing.Point(9, 310);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(307, 16);
+            this.label9.TabIndex = 76;
+            this.label9.Text = "Compliance Test does not appear in the list of countries?";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.LightGray;
+            this.label8.Location = new System.Drawing.Point(5, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(231, 16);
+            this.label8.TabIndex = 68;
+            this.label8.Text = "STATION MANAGEMENT [AP ONLY]";
+            this.label8.Click += new System.EventHandler(this.Label8_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(39)))), ((int)(((byte)(51)))));
+            this.panel6.Controls.Add(this.Stations);
+            this.panel6.Controls.Add(this.Buscar);
+            this.panel6.Controls.Add(this.label8);
+            this.panel6.Location = new System.Drawing.Point(323, 217);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(287, 67);
+            this.panel6.TabIndex = 75;
+            // 
+            // Stations
+            // 
+            this.Stations.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.Stations.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
+            this.Stations.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Stations.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Stations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
+            this.Stations.ForeColorMouseOver = System.Drawing.Color.Empty;
+            this.Stations.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.Stations.ImageIcon = null;
+            this.Stations.Location = new System.Drawing.Point(8, 29);
+            this.Stations.Name = "Stations";
+            this.Stations.Rounded = false;
+            this.Stations.Size = new System.Drawing.Size(125, 24);
+            this.Stations.Style = FlatButton._Style.TextOnly;
+            this.Stations.TabIndex = 70;
+            this.Stations.Text = "Show links ";
+            this.Stations.Click += new System.EventHandler(this.Stations_Click);
+            // 
+            // Buscar
+            // 
+            this.Buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.Buscar.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
+            this.Buscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
+            this.Buscar.ForeColorMouseOver = System.Drawing.Color.Empty;
+            this.Buscar.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.Buscar.ImageIcon = null;
+            this.Buscar.Location = new System.Drawing.Point(154, 29);
+            this.Buscar.Name = "Buscar";
+            this.Buscar.Rounded = false;
+            this.Buscar.Size = new System.Drawing.Size(125, 24);
+            this.Buscar.Style = FlatButton._Style.TextOnly;
+            this.Buscar.TabIndex = 69;
+            this.Buscar.Text = "Scan channels";
+            this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.panel7.Controls.Add(this.label5);
+            this.panel7.Controls.Add(this.StatusLabel);
+            this.panel7.Controls.Add(this.CountryLabel);
+            this.panel7.Controls.Add(this.FirmwareLabel);
+            this.panel7.Controls.Add(this.DeviceLabel);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Controls.Add(this.DeviceLogo);
+            this.panel7.Controls.Add(this.label6);
+            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(this.lblping);
+            this.panel7.Controls.Add(this.PingLabel);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 26);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(618, 105);
+            this.panel7.TabIndex = 77;
             // 
             // addCT
             // 
@@ -571,7 +648,7 @@ namespace SKYNET
             this.addCT.Size = new System.Drawing.Size(176, 24);
             this.addCT.Style = FlatButton._Style.TextOnly;
             this.addCT.TabIndex = 73;
-            this.addCT.Text = "Agregar Compliance Test";
+            this.addCT.Text = "Add Compliance Test";
             this.addCT.Click += new System.EventHandler(this.AddCT_Click);
             // 
             // RebootDevice
@@ -590,85 +667,8 @@ namespace SKYNET
             this.RebootDevice.Size = new System.Drawing.Size(159, 24);
             this.RebootDevice.Style = FlatButton._Style.TextOnly;
             this.RebootDevice.TabIndex = 72;
-            this.RebootDevice.Text = "Reiniciar dispositivo";
+            this.RebootDevice.Text = "Restart device";
             this.RebootDevice.Click += new System.EventHandler(this.RebootDevice_Click);
-            // 
-            // SetChannel
-            // 
-            this.SetChannel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
-            this.SetChannel.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
-            this.SetChannel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SetChannel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SetChannel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.SetChannel.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.SetChannel.ImageAlignment = FlatButton._ImgAlign.Left;
-            this.SetChannel.ImageIcon = null;
-            this.SetChannel.Location = new System.Drawing.Point(217, 24);
-            this.SetChannel.Name = "SetChannel";
-            this.SetChannel.Rounded = false;
-            this.SetChannel.Size = new System.Drawing.Size(77, 31);
-            this.SetChannel.Style = FlatButton._Style.TextOnly;
-            this.SetChannel.TabIndex = 68;
-            this.SetChannel.Text = "Ajustar";
-            this.SetChannel.Click += new System.EventHandler(this.SetChannel_Click);
-            // 
-            // PowerBar
-            // 
-            this.PowerBar.DrawValueString = false;
-            this.PowerBar.JumpToMouse = false;
-            this.PowerBar.Location = new System.Drawing.Point(8, 31);
-            this.PowerBar.Maximum = 10;
-            this.PowerBar.Minimum = 0;
-            this.PowerBar.MinimumSize = new System.Drawing.Size(47, 22);
-            this.PowerBar.Name = "PowerBar";
-            this.PowerBar.Size = new System.Drawing.Size(168, 22);
-            this.PowerBar.TabIndex = 68;
-            this.PowerBar.Value = 0;
-            this.PowerBar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PowerBar_MouseMove);
-            // 
-            // SetPower
-            // 
-            this.SetPower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
-            this.SetPower.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
-            this.SetPower.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SetPower.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SetPower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.SetPower.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.SetPower.ImageAlignment = FlatButton._ImgAlign.Left;
-            this.SetPower.ImageIcon = null;
-            this.SetPower.Location = new System.Drawing.Point(217, 29);
-            this.SetPower.Name = "SetPower";
-            this.SetPower.Rounded = false;
-            this.SetPower.Size = new System.Drawing.Size(77, 24);
-            this.SetPower.Style = FlatButton._Style.TextOnly;
-            this.SetPower.TabIndex = 68;
-            this.SetPower.Text = "Ajustar";
-            this.SetPower.Click += new System.EventHandler(this.SetPower_Click);
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.panel8.Controls.Add(this.ChannelList);
-            this.panel8.Location = new System.Drawing.Point(8, 25);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(203, 30);
-            this.panel8.TabIndex = 72;
-            // 
-            // ChannelList
-            // 
-            this.ChannelList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.ChannelList.BackColorMouseOver = System.Drawing.Color.Empty;
-            this.ChannelList.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChannelList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.ChannelList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ChannelList.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.ChannelList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
-            this.ChannelList.FormattingEnabled = true;
-            this.ChannelList.ItemHeight = 18;
-            this.ChannelList.Location = new System.Drawing.Point(-4, 3);
-            this.ChannelList.Name = "ChannelList";
-            this.ChannelList.Size = new System.Drawing.Size(203, 24);
-            this.ChannelList.TabIndex = 35;
             // 
             // frmManager
             // 
@@ -712,6 +712,7 @@ namespace SKYNET
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DeviceLogo)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -719,7 +720,6 @@ namespace SKYNET
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

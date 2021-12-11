@@ -102,9 +102,9 @@ namespace SKYNET
             this.tittleLbl.ForeColor = System.Drawing.Color.White;
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(245, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(255, 16);
             this.tittleLbl.TabIndex = 7;
-            this.tittleLbl.Text = "Defina el método a aplicarle al equipo";
+            this.tittleLbl.Text = "Define the method to apply to the team";
             this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
             this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
             this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
@@ -182,9 +182,9 @@ namespace SKYNET
             this.about.ForeColor = System.Drawing.Color.White;
             this.about.Location = new System.Drawing.Point(3, 3);
             this.about.Name = "about";
-            this.about.Size = new System.Drawing.Size(197, 16);
+            this.about.Size = new System.Drawing.Size(187, 16);
             this.about.TabIndex = 0;
-            this.about.Text = "Método basico. No requiere reinicio";
+            this.about.Text = "Basic method. No reboot required";
             // 
             // method2
             // 
@@ -202,7 +202,7 @@ namespace SKYNET
             this.method2.Size = new System.Drawing.Size(141, 24);
             this.method2.Style = FlatButton._Style.TextOnly;
             this.method2.TabIndex = 74;
-            this.method2.Text = "Método avanzado";
+            this.method2.Text = "Advanced method";
             this.method2.Click += new System.EventHandler(this.Method_Click);
             this.method2.MouseLeave += new System.EventHandler(this.Mothod_MouseLeave);
             this.method2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mothod_MouseMove);
@@ -223,7 +223,7 @@ namespace SKYNET
             this.method1.Size = new System.Drawing.Size(141, 24);
             this.method1.Style = FlatButton._Style.TextOnly;
             this.method1.TabIndex = 73;
-            this.method1.Text = "Método normal";
+            this.method1.Text = "Normal method";
             this.method1.Click += new System.EventHandler(this.Method_Click);
             this.method1.MouseLeave += new System.EventHandler(this.Mothod_MouseLeave);
             this.method1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mothod_MouseMove);

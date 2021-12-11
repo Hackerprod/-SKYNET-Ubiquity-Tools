@@ -45,6 +45,7 @@ namespace SKYNET
             this.label1 = new System.Windows.Forms.Label();
             this.DeviceContainer = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.devices1 = new DeviceView.Devices();
             this._lvAliveHosts = new System.Windows.Forms.ListView();
             this.Chann = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DeviceName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,7 +59,6 @@ namespace SKYNET
             this.noisefloor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tx_latency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.signal_Remote = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.devices1 = new DeviceView.Devices();
             this.panel1.SuspendLayout();
             this.CloseBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).BeginInit();
@@ -114,9 +114,9 @@ namespace SKYNET
             this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(126, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(103, 16);
             this.tittleLbl.TabIndex = 7;
-            this.tittleLbl.Text = "Canales del Equipo";
+            this.tittleLbl.Text = "Team Channels";
             this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
             this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
             this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
@@ -200,6 +200,22 @@ namespace SKYNET
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(954, 464);
             this.panel4.TabIndex = 75;
+            // 
+            // devices1
+            // 
+            this.devices1.Average = null;
+            this.devices1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(76)))), ((int)(((byte)(78)))));
+            this.devices1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(157)))), ((int)(((byte)(160)))));
+            this.devices1.Location = new System.Drawing.Point(464, 228);
+            this.devices1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.devices1.Name = "devices1";
+            this.devices1.Padding = new System.Windows.Forms.Padding(1);
+            this.devices1.Size = new System.Drawing.Size(455, 229);
+            this.devices1.TabIndex = 2;
+            this.devices1.Visible = false;
+            this.devices1.MouseLeave += new System.EventHandler(this.Devices1_MouseLeave);
+            this.devices1.MouseHover += new System.EventHandler(this.Devices1_MouseHover);
+            this.devices1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Devices1_MouseMove);
             // 
             // _lvAliveHosts
             // 
@@ -290,22 +306,6 @@ namespace SKYNET
             // 
             this.signal_Remote.Text = "Signal [Remote]";
             this.signal_Remote.Width = 96;
-            // 
-            // devices1
-            // 
-            this.devices1.Average = null;
-            this.devices1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(76)))), ((int)(((byte)(78)))));
-            this.devices1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(157)))), ((int)(((byte)(160)))));
-            this.devices1.Location = new System.Drawing.Point(464, 228);
-            this.devices1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.devices1.Name = "devices1";
-            this.devices1.Padding = new System.Windows.Forms.Padding(1);
-            this.devices1.Size = new System.Drawing.Size(455, 229);
-            this.devices1.TabIndex = 2;
-            this.devices1.Visible = false;
-            this.devices1.MouseLeave += new System.EventHandler(this.Devices1_MouseLeave);
-            this.devices1.MouseHover += new System.EventHandler(this.Devices1_MouseHover);
-            this.devices1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Devices1_MouseMove);
             // 
             // frmDevice
             // 

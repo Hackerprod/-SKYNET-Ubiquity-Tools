@@ -252,11 +252,11 @@ namespace SKYNET
                 FlatButton button = (FlatButton)sender;
                 if (button.Name == "method1")
                 {
-                    about.Text = "Método básico. No requiere reinicio";
+                    about.Text = "Basic method. No reboot required";
                 }
                 else if (button.Name == "method2")
                 {
-                    about.Text = "Método avanzado. Requiere reinicio";
+                    about.Text = "Advanced method. Requires reboot";
                 }
 
                 aboutPanel.Location = new Point(aboutPanel.Location.X, button.Location.Y);

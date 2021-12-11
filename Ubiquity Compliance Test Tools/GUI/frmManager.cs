@@ -40,7 +40,7 @@ namespace SKYNET
             {
                 if (value == true)
                 {
-                    this.StatusLabel.Text = "CONECTADO";
+                    this.StatusLabel.Text = "ONLINE";
                     this.StatusLabel.ForeColor = Color.Green;
 
                     if (!pingWorker.IsBusy)
@@ -52,13 +52,13 @@ namespace SKYNET
                 }
                 else 
                 {
-                    this.StatusLabel.Text = "DESCONECTADO";
+                    this.StatusLabel.Text = "OFFLINE";
                     this.StatusLabel.ForeColor = Color.Red;
 
-                    DeviceLabel.Text = "Desconectado";
-                    FirmwareLabel.Text = "Desconectado";
-                    CountryLabel.Text = "Desconectado";
-                    StatusLabel.Text = "Desconectado";
+                    DeviceLabel.Text = "Offline";
+                    FirmwareLabel.Text = "Offline";
+                    CountryLabel.Text = "Offline";
+                    StatusLabel.Text = "Offline";
 
                     modCommon.SetVisibleControl(PingLabel, false);
                     modCommon.SetVisibleControl(lblping, false);
@@ -281,13 +281,13 @@ namespace SKYNET
                     }
                     else
                     {
-                        PingLabel.Text = "Desconectado";
+                        PingLabel.Text = "Offline";
                         Thread.Sleep(1000);
                     }
                 }
                 catch (Exception)
                 {
-                    PingLabel.Text = "Desconectado";
+                    PingLabel.Text = "Offline";
                     Thread.Sleep(1000);
                 }
 
@@ -327,7 +327,7 @@ namespace SKYNET
             if (!string.IsNullOrEmpty(channel))
             {
                 sshCommand = modCommon.sshClient.RunCommand("iwconfig ath0 channel " + channel + "&& save");
-                Write("El equipo a cambiado al canal " + channel);
+                Write("The device has switched to the channel " + channel);
             }
             modCommon.device.Channel = channel;
         }
@@ -376,7 +376,7 @@ namespace SKYNET
                 modCommon.sshClient.Connect();
             }
             sshCommand = modCommon.sshClient.RunCommand("reboot");
-            Write("Reiniciando equipo", MessageType.WARN);
+            Write("Restarting device", MessageType.WARN);
         }
 
         private void AddCT_Click(object sender, EventArgs e)
@@ -387,7 +387,7 @@ namespace SKYNET
             }
             SshCommand sshCommand = modCommon.sshClient.RunCommand("echo '<option value='511' > Compliance Test</option>' >> /var/etc/ccodes.inc && cfgmtd -f /var/etc/ccodes.inc -w && save");
 
-            Write("Compliance Test agregado a la lista de paises", MessageType.INFO);
+            Write("Compliance Test added to the list of countries", MessageType.INFO);
 
         }
 
@@ -403,7 +403,7 @@ namespace SKYNET
             currentuser = currentuser.Remove(currentuser.Length - 1, 1);
             Write(currentuser.Length);
             sshCommand = modCommon.sshClient.RunCommand("sed -i 's/users.1.name=" + currentuser + "/users.1.name=" + username.Text + "/g' /tmp/system.cfg && cfgmtd -f /tmp/system.cfg -w && save");
-            Write("Nombre de usuario cambiado, debe reiniciar el equipo para que se apliquen los cambios", MessageType.INFO);
+            Write("Username changed, you must restart the device for the changes to take effect", MessageType.INFO);
             frmMain.frm.username.Text = username.Text;
             RegistrySettings.SaveSettings();
         }

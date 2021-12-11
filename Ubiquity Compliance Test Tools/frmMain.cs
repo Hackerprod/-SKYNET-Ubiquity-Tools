@@ -49,8 +49,8 @@ namespace SKYNET
             {
                 if (value == true)
                 {
-                    connect.Text = "DESCONECTAR";
-                    this.StatusLabel.Text = "CONECTADO";
+                    connect.Text = "DISCONNECT";
+                    this.StatusLabel.Text = "ONLINE";
                     this.StatusLabel.ForeColor = Color.Green;
 
                     if (!pingWorker.IsBusy)
@@ -69,15 +69,15 @@ namespace SKYNET
                 }
                 else 
                 {
-                    connect.Text = "CONECTAR";
+                    connect.Text = "CONNECT";
 
-                    this.StatusLabel.Text = "DESCONECTADO";
+                    this.StatusLabel.Text = "OFFLINE";
                     this.StatusLabel.ForeColor = Color.Red;
 
-                    DeviceLabel.Text = "Desconectado";
-                    FirmwareLabel.Text = "Desconectado";
-                    CountryLabel.Text = "Desconectado";
-                    StatusLabel.Text = "Desconectado";
+                    DeviceLabel.Text = "Offline";
+                    FirmwareLabel.Text = "Offline";
+                    CountryLabel.Text = "Offline";
+                    StatusLabel.Text = "Offline";
 
                     ActivateCT.Visible = false;
                     PingLabel.Visible = false;
@@ -378,7 +378,7 @@ namespace SKYNET
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            ilog_0.Info("Conéctese al equipo para comenzar");
+            ilog_0.Info("Connect to the device to get started");
             Connected = false;
             Common.Metodo = Common.Method.Method_1;
 
@@ -388,7 +388,7 @@ namespace SKYNET
 
         private void Connect_Click(object sender, EventArgs e)
         {
-            if (connect.Text.ToLower() == "conectar")
+            if (connect.Text.ToLower() == "connect")
             {
                 if (!IniciarSession.IsBusy)
                 {
@@ -406,7 +406,7 @@ namespace SKYNET
             string Label1 = "";
 
             this.Disconnect();
-            Write("Conectando a " + serverip.Text);
+            Write("Connecting to " + serverip.Text);
             PasswordConnectionInfo connectionInfo = new PasswordConnectionInfo(serverip.Text, 22, user, password);
             modCommon.sshClient = new SshClient(connectionInfo);
             modCommon.sshClient.ErrorOccurred += SshClient_ErrorOccurred;
@@ -545,7 +545,7 @@ namespace SKYNET
             string Label1 = "";
 
             this.Disconnect();
-            Write("Conectando a " + serverip.Text);
+            Write("Connecting to " + serverip.Text);
             PasswordConnectionInfo connectionInfo = new PasswordConnectionInfo(serverip.Text, 22, username.Text, password.Text);
             modCommon.sshClient = new SshClient(connectionInfo);
             modCommon.sshClient.ErrorOccurred += SshClient_ErrorOccurred;
@@ -584,10 +584,8 @@ namespace SKYNET
                     Label1 = sshCommand.Result;
                     string left = Strings.Replace(Label1, "radio.countrycode=", "", 1, -1, CompareMethod.Binary).Trim();
 
-                    //sshCommand = sshClient.RunCommand("iwconfig ath0 txpower 20");
-
-                    string pais = modCommon.GetCountry(left);
-                    CountryLabel.Text = pais;
+                    string country = modCommon.GetCountry(left);
+                    CountryLabel.Text = country;
                     modCommon.SetVisibleControl(AdminDevice, true);
 
                     //////////////////////////////////////////////////////////////
@@ -673,7 +671,7 @@ namespace SKYNET
             }
             catch (Exception)
             {
-                ilog_0.Error("Ha ocurrido un error al establecer la conexión");
+                ilog_0.Error("An error occurred while establishing the connection");
             }
 
             while (!modCommon.sshClient.IsConnected)
@@ -681,7 +679,7 @@ namespace SKYNET
                 modCommon.sshClient.Connect();
             }
             if (Connected)
-                Write("Conexión establecida");
+                Write("Established connection");
         }
 
         private void ActivateCT_Click(object sender, EventArgs e)
@@ -712,7 +710,7 @@ namespace SKYNET
                 }
             }
             this.Connected = false;
-            if (showMessage) Write("Se ha desconectado del equipo");
+            if (showMessage) Write("You have disconnected from your device");
         }
 
         private void RichTextBox1_TextChanged(object sender, EventArgs e)
@@ -744,13 +742,13 @@ namespace SKYNET
                     }
                     else
                     {
-                        PingLabel.Text = "Desconectado";
+                        PingLabel.Text = "Offline";
                         Thread.Sleep(1000);
                     }
                 }
                 catch (Exception)
                 {
-                    PingLabel.Text = "Desconectado";
+                    PingLabel.Text = "Offline";
                     Thread.Sleep(1000);
                 }
 
@@ -777,14 +775,14 @@ namespace SKYNET
 
             if (this.FirmwareLabel.Text.Contains("XC"))
             {
-                MessageBox.Show("El equipo no es de la Linea Ubiquiti airMAX M!.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("The equipment is not from the Ubiquiti airMAX M Line!.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 this.Write("Error! Detected as Airmax AC device.", MessageType.ERROR);
                 this.Write("XC firmware not supported.", MessageType.ERROR);
                 return;
             }
             if (this.FirmwareLabel.Text.Contains("WA"))
             {
-                MessageBox.Show("El equipo no es de la Linea Ubiquiti airMAX M!.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show("The equipment is not from the Ubiquiti airMAX M Line!.", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 this.Write("Error! Detected as Airmax AC device.", MessageType.ERROR);
                 this.Write("WA firmware not supported.", MessageType.ERROR);
                 return;
@@ -795,7 +793,7 @@ namespace SKYNET
                 modCommon.sshClient.Connect();
             }
 
-            this.Write("Intentando activar el Compliance Test al equipo", MessageType.INFO);
+            this.Write("Trying to activate the Compliance Test to the device", MessageType.INFO);
             if (Common.Metodo == Common.Method.Method_1)
             {
                 SshCommand sshCommand = modCommon.sshClient.RunCommand(modCommon.GetCTCode_M1());
@@ -844,11 +842,11 @@ namespace SKYNET
 
                             if (pais == "COMPLIANCE TEST")
                             {
-                                this.Write("Hecho... Compliance Test activado.", MessageType.INFO);
+                                this.Write("Done ... Compliance Test activated.", MessageType.INFO);
 
                                 if (Common.Metodo == Common.Method.Method_2)
                                 {
-                                    this.Write("Reiniciando el equipo.", MessageType.WARN);
+                                    this.Write("Restarting the device.", MessageType.WARN);
                                     Connected = false;
                                 }
                                 modCommon.SetVisibleControl(ActivateCT, false);
@@ -875,7 +873,7 @@ namespace SKYNET
         {
             if (e.KeyData == Keys.Return)
             {
-                if (connect.Text.ToLower() == "conectar")
+                if (connect.Text.ToLower() == "connect")
                 {
                     if (!IniciarSession.IsBusy)
                     {

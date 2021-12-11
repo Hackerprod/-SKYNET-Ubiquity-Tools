@@ -103,9 +103,9 @@ namespace SKYNET
             this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(161, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(122, 16);
             this.tittleLbl.TabIndex = 7;
-            this.tittleLbl.Text = "Buscar puntos de acceso";
+            this.tittleLbl.Text = "Find access points";
             this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
             this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
             this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
@@ -219,7 +219,7 @@ namespace SKYNET
             this.method1.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
             this.method1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.method1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.method1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(157)))), ((int)(((byte)(160)))));
+            this.method1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.method1.ForeColorMouseOver = System.Drawing.Color.Empty;
             this.method1.ImageAlignment = FlatButton._ImgAlign.Left;
             this.method1.ImageIcon = null;
@@ -229,7 +229,7 @@ namespace SKYNET
             this.method1.Size = new System.Drawing.Size(97, 24);
             this.method1.Style = FlatButton._Style.TextOnly;
             this.method1.TabIndex = 73;
-            this.method1.Text = "Buscar";
+            this.method1.Text = "Find";
             this.method1.Click += new System.EventHandler(this.Method_Click);
             this.method1.MouseLeave += new System.EventHandler(this.Mothod_MouseLeave);
             this.method1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Mothod_MouseMove);

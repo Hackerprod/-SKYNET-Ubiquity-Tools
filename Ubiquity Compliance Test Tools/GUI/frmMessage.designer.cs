@@ -86,7 +86,7 @@ partial class frmMessage
             this.acepctBtn.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
             this.acepctBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.acepctBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.acepctBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(157)))), ((int)(((byte)(160)))));
+            this.acepctBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.acepctBtn.ForeColorMouseOver = System.Drawing.Color.Empty;
             this.acepctBtn.ImageAlignment = FlatButton._ImgAlign.Left;
             this.acepctBtn.ImageIcon = null;
@@ -96,7 +96,7 @@ partial class frmMessage
             this.acepctBtn.Size = new System.Drawing.Size(93, 29);
             this.acepctBtn.Style = FlatButton._Style.TextOnly;
             this.acepctBtn.TabIndex = 27;
-            this.acepctBtn.Text = "Aceptar";
+            this.acepctBtn.Text = "OK";
             this.acepctBtn.Click += new System.EventHandler(this.acepctBtn_Click);
             // 
             // cancelBtn
@@ -105,7 +105,7 @@ partial class frmMessage
             this.cancelBtn.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(62)))), ((int)(((byte)(63)))));
             this.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(157)))), ((int)(((byte)(160)))));
+            this.cancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.cancelBtn.ForeColorMouseOver = System.Drawing.Color.Empty;
             this.cancelBtn.ImageAlignment = FlatButton._ImgAlign.Left;
             this.cancelBtn.ImageIcon = null;
@@ -115,7 +115,7 @@ partial class frmMessage
             this.cancelBtn.Size = new System.Drawing.Size(93, 29);
             this.cancelBtn.Style = FlatButton._Style.TextOnly;
             this.cancelBtn.TabIndex = 26;
-            this.cancelBtn.Text = "Cancelar";
+            this.cancelBtn.Text = "Cancel";
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // panel15
@@ -145,7 +145,7 @@ partial class frmMessage
             this.txtMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(32)))));
             this.txtMessage.BackColorControl = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(32)))));
             this.txtMessage.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(157)))), ((int)(((byte)(160)))));
+            this.txtMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txtMessage.isCustomColor = false;
             this.txtMessage.Location = new System.Drawing.Point(12, 10);
             this.txtMessage.MaxLength = 32767;
@@ -177,9 +177,8 @@ partial class frmMessage
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(147)))), ((int)(((byte)(157)))), ((int)(((byte)(160)))));
             this.label1.Location = new System.Drawing.Point(9, 4);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 16);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Mensaje";
             // 
             // frmMessage
             // 
