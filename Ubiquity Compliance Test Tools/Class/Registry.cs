@@ -11,11 +11,11 @@ namespace SKYNET
 
         public static void Initialice()
         {
-            UbiquityTools = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\[SKYNET] Ubiquity Tools\", true);
+            UbiquityTools = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\SKYNET\[SKYNET] Ubiquity Tools\", true);
             if (UbiquityTools == null)
             {
-                Registry.CurrentUser.CreateSubKey(@"SOFTWARE\[SKYNET] Ubiquity Tools\");
-                UbiquityTools = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\[SKYNET] Ubiquity Tools\", true);
+                Registry.CurrentUser.CreateSubKey(@"SOFTWARE\SKYNET\[SKYNET] Ubiquity Tools\");
+                UbiquityTools = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\SKYNET\[SKYNET] Ubiquity Tools\", true);
             }
         }
 

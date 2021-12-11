@@ -54,7 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoxTool.cs">
+    <Compile Include="GUI\Controls\BoxTool.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Class\DeviceClient.cs" />
@@ -66,138 +66,138 @@
     <Compile Include="Class\Discovery\DiscoveryPacket.cs" />
     <Compile Include="Class\Discovery\Utils.cs" />
     <Compile Include="Class\Registry.cs" />
-    <Compile Include="Common.cs" />
-    <Compile Include="Controls\FLAT\ColorSystem.cs" />
-    <Compile Include="Controls\FLAT\FlatAlertBox.cs">
+    <Compile Include="Class\Common.cs" />
+    <Compile Include="GUI\Controls\FLAT\ColorSystem.cs" />
+    <Compile Include="GUI\Controls\FLAT\FlatAlertBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatButton.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatCheckBox.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatClose.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatClose.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatColorPalette.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatColorPalette.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatComboBox.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatContextMenuStrip.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatContextMenuStrip.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatGroupBox.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatLabel.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatLabel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatListBox.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatMax.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatMax.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatMini.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatMini.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatNumeric.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatNumeric.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatPanel.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatProgressBar.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\flatRadioButton.cs">
+    <Compile Include="GUI\Controls\FLAT\flatRadioButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatStatusBar.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatStatusBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatStickyButton.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatStickyButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatTabControl.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatTabControl.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatTextBox.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatTextBox2.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatTextBox2.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatToggle.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatToggle.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatTrackBar.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\FlatTreeView.cs">
+    <Compile Include="GUI\Controls\FLAT\FlatTreeView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\FLAT\Helpers.cs" />
-    <Compile Include="Controls\FLAT\MouseState.cs" />
-    <Compile Include="Controls\HackTrackB.cs">
+    <Compile Include="GUI\Controls\FLAT\Helpers.cs" />
+    <Compile Include="GUI\Controls\FLAT\MouseState.cs" />
+    <Compile Include="GUI\Controls\HackTrackB.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\HackTrackBar.cs">
+    <Compile Include="GUI\Controls\HackTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Class\css.cs" />
     <Compile Include="Class\Device.cs" />
     <Compile Include="Class\DeviceDiscovered.cs" />
-    <Compile Include="Controls\LoginBox.cs">
+    <Compile Include="GUI\Controls\LoginBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\LoginBox.designer.cs">
+    <Compile Include="GUI\Controls\LoginBox.designer.cs">
       <DependentUpon>LoginBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Devices.cs">
+    <Compile Include="GUI\Controls\Devices.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Devices.Designer.cs">
+    <Compile Include="GUI\Controls\Devices.Designer.cs">
       <DependentUpon>Devices.cs</DependentUpon>
     </Compile>
-    <Compile Include="DwmApi.cs" />
-    <Compile Include="frmDevice.cs">
+    <Compile Include="GUI\Controls\DwmApi.cs" />
+    <Compile Include="GUI\frmDevice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDevice.designer.cs">
+    <Compile Include="GUI\frmDevice.designer.cs">
       <DependentUpon>frmDevice.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConnection.cs">
+    <Compile Include="GUI\frmConnection.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConnection.designer.cs">
+    <Compile Include="GUI\frmConnection.designer.cs">
       <DependentUpon>frmConnection.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSearch.cs">
+    <Compile Include="GUI\frmSearch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmSearch.designer.cs">
+    <Compile Include="GUI\frmSearch.designer.cs">
       <DependentUpon>frmSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmComplianceTest.cs">
+    <Compile Include="GUI\frmComplianceTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmComplianceTest.designer.cs">
+    <Compile Include="GUI\frmComplianceTest.designer.cs">
       <DependentUpon>frmComplianceTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDiscovery.cs">
+    <Compile Include="GUI\frmDiscovery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmDiscovery.designer.cs">
+    <Compile Include="GUI\frmDiscovery.designer.cs">
       <DependentUpon>frmDiscovery.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmManager.cs">
+    <Compile Include="GUI\frmManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmManager.designer.cs">
+    <Compile Include="GUI\frmManager.designer.cs">
       <DependentUpon>frmManager.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -206,14 +206,14 @@
     <Compile Include="frmMain.designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMessage.cs">
+    <Compile Include="GUI\frmMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMessage.designer.cs">
+    <Compile Include="GUI\frmMessage.designer.cs">
       <DependentUpon>frmMessage.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\HtmlHelper.cs" />
-    <Compile Include="ILog.cs" />
+    <Compile Include="Class\ILog.cs" />
     <Compile Include="Class\NetManager.cs" />
     <Compile Include="Class\Paths.cs" />
     <Compile Include="modCommon.cs" />
@@ -472,37 +472,37 @@
     <Compile Include="Class\Renci.SshNet\Renci.SshNet\ShellStream.cs" />
     <Compile Include="Class\Renci.SshNet\Renci.SshNet\SshClient.cs" />
     <Compile Include="Class\Renci.SshNet\Renci.SshNet\SshCommand.cs" />
-    <EmbeddedResource Include="BoxTool.resx">
+    <EmbeddedResource Include="GUI\Controls\BoxTool.resx">
       <DependentUpon>BoxTool.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\LoginBox.resx">
+    <EmbeddedResource Include="GUI\Controls\LoginBox.resx">
       <DependentUpon>LoginBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Devices.resx">
+    <EmbeddedResource Include="GUI\Controls\Devices.resx">
       <DependentUpon>Devices.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDevice.resx">
+    <EmbeddedResource Include="GUI\frmDevice.resx">
       <DependentUpon>frmDevice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConnection.resx">
+    <EmbeddedResource Include="GUI\frmConnection.resx">
       <DependentUpon>frmConnection.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSearch.resx">
+    <EmbeddedResource Include="GUI\frmSearch.resx">
       <DependentUpon>frmSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmComplianceTest.resx">
+    <EmbeddedResource Include="GUI\frmComplianceTest.resx">
       <DependentUpon>frmComplianceTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDiscovery.resx">
+    <EmbeddedResource Include="GUI\frmDiscovery.resx">
       <DependentUpon>frmDiscovery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmManager.resx">
+    <EmbeddedResource Include="GUI\frmManager.resx">
       <DependentUpon>frmManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMessage.resx">
+    <EmbeddedResource Include="GUI\frmMessage.resx">
       <DependentUpon>frmMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
