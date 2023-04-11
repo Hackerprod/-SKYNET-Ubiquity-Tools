@@ -32,6 +32,8 @@ namespace SKYNET.GUI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.PN_Top = new System.Windows.Forms.Panel();
+            this.BT_Minimize = new SKYNET.Controls.SKYNET_Box();
+            this.BT_Close = new SKYNET.Controls.SKYNET_Box();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -67,7 +69,6 @@ namespace SKYNET.GUI
             this.LaunchMisil = new System.Windows.Forms.ToolStripMenuItem();
             this.SKYNET_Button1 = new SKYNET.GUI.Controls.SKYNET_Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.skyneT_Box1 = new SKYNET.Controls.SKYNET_Box();
             this.PN_Top.SuspendLayout();
             this.WebBrowserpnl.SuspendLayout();
             this.planetMenu.SuspendLayout();
@@ -77,7 +78,8 @@ namespace SKYNET.GUI
             // PN_Top
             // 
             this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.PN_Top.Controls.Add(this.skyneT_Box1);
+            this.PN_Top.Controls.Add(this.BT_Minimize);
+            this.PN_Top.Controls.Add(this.BT_Close);
             this.PN_Top.Controls.Add(this.tittleLbl);
             this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PN_Top.ForeColor = System.Drawing.Color.White;
@@ -85,6 +87,38 @@ namespace SKYNET.GUI
             this.PN_Top.Name = "PN_Top";
             this.PN_Top.Size = new System.Drawing.Size(439, 26);
             this.PN_Top.TabIndex = 5;
+            // 
+            // BT_Minimize
+            // 
+            this.BT_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Minimize.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_Minimize.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.BT_Minimize.Image = global::SKYNET.Properties.Resources.minimise;
+            this.BT_Minimize.ImageSize = 10;
+            this.BT_Minimize.Location = new System.Drawing.Point(371, 0);
+            this.BT_Minimize.MenuMode = false;
+            this.BT_Minimize.MenuSeparation = 8;
+            this.BT_Minimize.Name = "BT_Minimize";
+            this.BT_Minimize.Size = new System.Drawing.Size(34, 26);
+            this.BT_Minimize.TabIndex = 12;
+            this.BT_Minimize.BoxClicked += new System.EventHandler(this.BT_Minimize_BoxClicked);
+            // 
+            // BT_Close
+            // 
+            this.BT_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_Close.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.BT_Close.Image = global::SKYNET.Properties.Resources.close;
+            this.BT_Close.ImageSize = 10;
+            this.BT_Close.Location = new System.Drawing.Point(405, 0);
+            this.BT_Close.MenuMode = false;
+            this.BT_Close.MenuSeparation = 8;
+            this.BT_Close.Name = "BT_Close";
+            this.BT_Close.Size = new System.Drawing.Size(34, 26);
+            this.BT_Close.TabIndex = 11;
+            this.BT_Close.BoxClicked += new System.EventHandler(this.BT_Close_BoxClicked);
             // 
             // tittleLbl
             // 
@@ -489,20 +523,6 @@ namespace SKYNET.GUI
             this.panel2.Size = new System.Drawing.Size(248, 139);
             this.panel2.TabIndex = 71;
             // 
-            // skyneT_Box1
-            // 
-            this.skyneT_Box1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.skyneT_Box1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.skyneT_Box1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
-            this.skyneT_Box1.Image = null;
-            this.skyneT_Box1.ImageSize = 10;
-            this.skyneT_Box1.Location = new System.Drawing.Point(364, -3);
-            this.skyneT_Box1.MenuMode = false;
-            this.skyneT_Box1.MenuSeparation = 8;
-            this.skyneT_Box1.Name = "skyneT_Box1";
-            this.skyneT_Box1.Size = new System.Drawing.Size(34, 26);
-            this.skyneT_Box1.TabIndex = 8;
-            // 
             // frmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -532,7 +552,6 @@ namespace SKYNET.GUI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubiquity Tools";
             this.Activated += new System.EventHandler(this.FrmMain_Activated);
-            this.Deactivate += new System.EventHandler(this.FrmMain_Deactivate);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.PN_Top.ResumeLayout(false);
             this.PN_Top.PerformLayout();
@@ -582,6 +601,7 @@ namespace SKYNET.GUI
         public Controls.SKYNET_TextBox password;
         private Controls.SKYNET_Button SKYNET_Button1;
         private System.Windows.Forms.Panel panel2;
-        private SKYNET.Controls.SKYNET_Box skyneT_Box1;
+        private SKYNET.Controls.SKYNET_Box BT_Minimize;
+        private SKYNET.Controls.SKYNET_Box BT_Close;
     }
 }

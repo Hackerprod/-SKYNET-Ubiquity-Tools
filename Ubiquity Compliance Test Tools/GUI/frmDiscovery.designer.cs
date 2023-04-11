@@ -35,6 +35,7 @@ namespace SKYNET.GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiscovery));
             this.PN_Top = new System.Windows.Forms.Panel();
+            this.BT_Close = new SKYNET.Controls.SKYNET_Box();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -42,13 +43,13 @@ namespace SKYNET.GUI
             this.label1 = new System.Windows.Forms.Label();
             this.DiscoverWorker = new System.ComponentModel.BackgroundWorker();
             this.panelSeparator = new System.Windows.Forms.Panel();
-            this.Recargar = new SKYNET_Button();
+            this.Recargar = new SKYNET.GUI.Controls.SKYNET_Button();
             this.DeviceContainer = new System.Windows.Forms.Panel();
             this.usarParaConectarPorSSHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirEquipoDesdeLaWebToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarDatoDeEsteEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarDatosDeTodosLosEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BoxMenu = new SKYNET_ContextMenuStrip();
+            this.BoxMenu = new SKYNET.GUI.Controls.SKYNET_ContextMenuStrip();
             this.PN_Top.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelSeparator.SuspendLayout();
@@ -58,6 +59,7 @@ namespace SKYNET.GUI
             // PN_Top
             // 
             this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.PN_Top.Controls.Add(this.BT_Close);
             this.PN_Top.Controls.Add(this.tittleLbl);
             this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PN_Top.ForeColor = System.Drawing.Color.White;
@@ -65,6 +67,22 @@ namespace SKYNET.GUI
             this.PN_Top.Name = "PN_Top";
             this.PN_Top.Size = new System.Drawing.Size(360, 26);
             this.PN_Top.TabIndex = 5;
+            // 
+            // BT_Close
+            // 
+            this.BT_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_Close.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.BT_Close.Image = global::SKYNET.Properties.Resources.close;
+            this.BT_Close.ImageSize = 10;
+            this.BT_Close.Location = new System.Drawing.Point(326, 0);
+            this.BT_Close.MenuMode = false;
+            this.BT_Close.MenuSeparation = 8;
+            this.BT_Close.Name = "BT_Close";
+            this.BT_Close.Size = new System.Drawing.Size(34, 26);
+            this.BT_Close.TabIndex = 11;
+            this.BT_Close.BoxClicked += new System.EventHandler(this.BT_Close_BoxClicked);
             // 
             // tittleLbl
             // 
@@ -135,13 +153,14 @@ namespace SKYNET.GUI
             this.Recargar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Recargar.ForeColor = System.Drawing.Color.White;
             this.Recargar.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Recargar.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.Recargar.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.Recargar.ImageIcon = null;
             this.Recargar.Location = new System.Drawing.Point(4, 7);
+            this.Recargar.MenuMode = false;
             this.Recargar.Name = "Recargar";
             this.Recargar.Rounded = false;
             this.Recargar.Size = new System.Drawing.Size(141, 24);
-            this.Recargar.Style = SKYNET_Button._Style.TextOnly;
+            this.Recargar.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.Recargar.TabIndex = 72;
             this.Recargar.Text = "Detectar dispositivos";
             this.Recargar.Click += new System.EventHandler(this.Recargar_Click);
@@ -244,5 +263,6 @@ namespace SKYNET.GUI
         private System.Windows.Forms.ToolStripMenuItem guardarDatoDeEsteEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarDatosDeTodosLosEquiposToolStripMenuItem;
         public SKYNET_ContextMenuStrip BoxMenu;
+        private SKYNET.Controls.SKYNET_Box BT_Close;
     }
 }

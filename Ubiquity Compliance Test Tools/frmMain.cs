@@ -24,9 +24,13 @@ namespace SKYNET.GUI
         public DeviceDiscovery DeviceDiscovery;
         public StringBuilder HtmlString;
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
+        private const int WM_VSCROLL = 277;
+        private const int SB_PAGEBOTTOM = 7;
+
         private RegistrySettings settings;
         private bool connected;
-        private readonly Dictionary<string, string> UsersAndIds = new Dictionary<string, string>();
 
         public bool Connected
         {
@@ -96,19 +100,9 @@ namespace SKYNET.GUI
             Connected = false;
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
-        private const int WM_VSCROLL = 277;
-        private const int SB_PAGEBOTTOM = 7;
         public static void ScrollToBottom(RichTextBox MyRichTextBox)
         {
             SendMessage(MyRichTextBox.Handle, WM_VSCROLL, (IntPtr)SB_PAGEBOTTOM, IntPtr.Zero);
-        }
-
-        private void closeBox_Click(object sender, EventArgs e)
-        {
-            RegistrySettings.SaveSettings();
-            Process.GetCurrentProcess().Kill();
         }
 
         internal void Write(object mess, MessageType mtype = MessageType.INFO)
@@ -534,40 +528,11 @@ namespace SKYNET.GUI
             Visible = true;
         }
 
-        private void FrmMain_Deactivate(object sender, EventArgs e)
-        {
-            
-        }
-
         internal void SetEquipo(string ipName)
         {
             serverip.Text = ipName;
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
-            while (!Common.sshClient.IsConnected)
-            {
-                Common.sshClient.Connect();
-            }
-
-            this.Write("Testing", MessageType.INFO);
-
-
-            SshCommand sshCommand = Common.sshClient.RunCommand("sed -i '/radio.countrycode/c\\radio.countrycode=511' /tmp/system.cfg && sed -i '/radio.1.countrycode/c\\radio.1.countrycode=511' /tmp/system.cfg");
-            sshCommand = Common.sshClient.RunCommand("sed -i '/radio.countrycode/c\\radio.countrycode=511' /tmp/system.cfg && sed -i '/radio.1.countrycode/c\\radio.1.countrycode=511' /tmp/system.cfg");
-
-            sshCommand = Common.sshClient.RunCommand("echo \"countrycode = 511\" > /var/etc/atheros.conf");
-            sshCommand = Common.sshClient.RunCommand("sed -i 's/840/511/g' /tmp/system.cfg");
-            sshCommand = Common.sshClient.RunCommand("<option value=\"511\"> Compliance Test</option>\" >> /var/etc/ccodes.inc");
-            sshCommand = Common.sshClient.RunCommand("cfgmtd -f /tmp/system.cfg -w");
-            sshCommand = Common.sshClient.RunCommand("cfgmtd -f /var/etc/ccodes.inc -w");
-            sshCommand = Common.sshClient.RunCommand("cfgmtd -f /var/etc/atheros.conf -w");
-            sshCommand = Common.sshClient.RunCommand("save");
-  
-            sshCommand = Common.sshClient.RunCommand("cat /tmp/system.cfg | grep countrycode");
-            this.Write(sshCommand.Result, MessageType.INFO);
-        }
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
@@ -590,9 +555,15 @@ namespace SKYNET.GUI
             discovery.ShowDialog();
         }
 
-        private void FlatButton1_Click(object sender, EventArgs e)
+        private void BT_Close_BoxClicked(object sender, EventArgs e)
         {
+            RegistrySettings.SaveSettings();
+            Process.GetCurrentProcess().Kill();
+        }
 
+        private void BT_Minimize_BoxClicked(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

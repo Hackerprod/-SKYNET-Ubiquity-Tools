@@ -343,5 +343,16 @@ namespace SKYNET.GUI
             DwmApi.MARGINS marInset = mARGINS;
             DwmApi.DwmExtendFrameIntoClientArea(base.Handle, ref marInset);
         }
+
+        private void BT_Close_BoxClicked(object sender, EventArgs e)
+        {
+            frmMain.frm.Visible = true;
+            Close();
+        }
+
+        private void BT_Minimize_BoxClicked(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
     }
 }

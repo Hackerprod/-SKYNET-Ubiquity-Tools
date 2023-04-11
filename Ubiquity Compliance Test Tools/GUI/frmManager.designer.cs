@@ -35,6 +35,8 @@ namespace SKYNET.GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManager));
             this.PN_Top = new System.Windows.Forms.Panel();
+            this.BT_Minimize = new SKYNET.Controls.SKYNET_Box();
+            this.BT_Close = new SKYNET.Controls.SKYNET_Box();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -55,26 +57,26 @@ namespace SKYNET.GUI
             this.panel5 = new System.Windows.Forms.Panel();
             this.CurrentPower = new System.Windows.Forms.Label();
             this.PowerBar = new HackerProd.Controles.HackTrackBar();
-            this.SetPower = new SKYNET_Button();
+            this.SetPower = new SKYNET.GUI.Controls.SKYNET_Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.ChannelList = new SKYNET_ComboBox();
-            this.SetChannel = new SKYNET_Button();
+            this.SetChannel = new SKYNET.GUI.Controls.SKYNET_Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DeviceLogo = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.username = new SKYNET.LoginBox();
-            this.Cambiar = new SKYNET_Button();
+            this.Cambiar = new SKYNET.GUI.Controls.SKYNET_Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.Stations = new SKYNET_Button();
-            this.Buscar = new SKYNET_Button();
+            this.Stations = new SKYNET.GUI.Controls.SKYNET_Button();
+            this.Buscar = new SKYNET.GUI.Controls.SKYNET_Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.addCT = new SKYNET_Button();
-            this.RebootDevice = new SKYNET_Button();
+            this.addCT = new SKYNET.GUI.Controls.SKYNET_Button();
+            this.RebootDevice = new SKYNET.GUI.Controls.SKYNET_Button();
             this.PN_Top.SuspendLayout();
             this.WebBrowserpnl.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -90,6 +92,8 @@ namespace SKYNET.GUI
             // PN_Top
             // 
             this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.PN_Top.Controls.Add(this.BT_Minimize);
+            this.PN_Top.Controls.Add(this.BT_Close);
             this.PN_Top.Controls.Add(this.tittleLbl);
             this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PN_Top.ForeColor = System.Drawing.Color.White;
@@ -97,6 +101,38 @@ namespace SKYNET.GUI
             this.PN_Top.Name = "PN_Top";
             this.PN_Top.Size = new System.Drawing.Size(618, 26);
             this.PN_Top.TabIndex = 5;
+            // 
+            // BT_Minimize
+            // 
+            this.BT_Minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Minimize.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Minimize.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_Minimize.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.BT_Minimize.Image = global::SKYNET.Properties.Resources.minimise;
+            this.BT_Minimize.ImageSize = 10;
+            this.BT_Minimize.Location = new System.Drawing.Point(550, 0);
+            this.BT_Minimize.MenuMode = false;
+            this.BT_Minimize.MenuSeparation = 8;
+            this.BT_Minimize.Name = "BT_Minimize";
+            this.BT_Minimize.Size = new System.Drawing.Size(34, 26);
+            this.BT_Minimize.TabIndex = 12;
+            this.BT_Minimize.BoxClicked += new System.EventHandler(this.BT_Minimize_BoxClicked);
+            // 
+            // BT_Close
+            // 
+            this.BT_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_Close.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.BT_Close.Image = global::SKYNET.Properties.Resources.close;
+            this.BT_Close.ImageSize = 10;
+            this.BT_Close.Location = new System.Drawing.Point(584, 0);
+            this.BT_Close.MenuMode = false;
+            this.BT_Close.MenuSeparation = 8;
+            this.BT_Close.Name = "BT_Close";
+            this.BT_Close.Size = new System.Drawing.Size(34, 26);
+            this.BT_Close.TabIndex = 11;
+            this.BT_Close.BoxClicked += new System.EventHandler(this.BT_Close_BoxClicked);
             // 
             // tittleLbl
             // 
@@ -317,13 +353,14 @@ namespace SKYNET.GUI
             this.SetPower.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SetPower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.SetPower.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.SetPower.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.SetPower.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.SetPower.ImageIcon = null;
             this.SetPower.Location = new System.Drawing.Point(217, 29);
+            this.SetPower.MenuMode = false;
             this.SetPower.Name = "SetPower";
             this.SetPower.Rounded = false;
             this.SetPower.Size = new System.Drawing.Size(77, 24);
-            this.SetPower.Style = SKYNET_Button._Style.TextOnly;
+            this.SetPower.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.SetPower.TabIndex = 68;
             this.SetPower.Text = "Apply";
             this.SetPower.Click += new System.EventHandler(this.SetPower_Click);
@@ -383,13 +420,14 @@ namespace SKYNET.GUI
             this.SetChannel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SetChannel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.SetChannel.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.SetChannel.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.SetChannel.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.SetChannel.ImageIcon = null;
             this.SetChannel.Location = new System.Drawing.Point(217, 24);
+            this.SetChannel.MenuMode = false;
             this.SetChannel.Name = "SetChannel";
             this.SetChannel.Rounded = false;
             this.SetChannel.Size = new System.Drawing.Size(77, 31);
-            this.SetChannel.Style = SKYNET_Button._Style.TextOnly;
+            this.SetChannel.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.SetChannel.TabIndex = 68;
             this.SetChannel.Text = "Apply";
             this.SetChannel.Click += new System.EventHandler(this.SetChannel_Click);
@@ -450,13 +488,14 @@ namespace SKYNET.GUI
             this.Cambiar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Cambiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.Cambiar.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Cambiar.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.Cambiar.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.Cambiar.ImageIcon = null;
             this.Cambiar.Location = new System.Drawing.Point(202, 25);
+            this.Cambiar.MenuMode = false;
             this.Cambiar.Name = "Cambiar";
             this.Cambiar.Rounded = false;
             this.Cambiar.Size = new System.Drawing.Size(77, 30);
-            this.Cambiar.Style = SKYNET_Button._Style.TextOnly;
+            this.Cambiar.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.Cambiar.TabIndex = 68;
             this.Cambiar.Text = "Change";
             this.Cambiar.Click += new System.EventHandler(this.Cambiar_Click);
@@ -512,13 +551,14 @@ namespace SKYNET.GUI
             this.Stations.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Stations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.Stations.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Stations.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.Stations.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.Stations.ImageIcon = null;
             this.Stations.Location = new System.Drawing.Point(8, 29);
+            this.Stations.MenuMode = false;
             this.Stations.Name = "Stations";
             this.Stations.Rounded = false;
             this.Stations.Size = new System.Drawing.Size(125, 24);
-            this.Stations.Style = SKYNET_Button._Style.TextOnly;
+            this.Stations.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.Stations.TabIndex = 70;
             this.Stations.Text = "Show links ";
             this.Stations.Click += new System.EventHandler(this.Stations_Click);
@@ -531,13 +571,14 @@ namespace SKYNET.GUI
             this.Buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.Buscar.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Buscar.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.Buscar.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.Buscar.ImageIcon = null;
             this.Buscar.Location = new System.Drawing.Point(154, 29);
+            this.Buscar.MenuMode = false;
             this.Buscar.Name = "Buscar";
             this.Buscar.Rounded = false;
             this.Buscar.Size = new System.Drawing.Size(125, 24);
-            this.Buscar.Style = SKYNET_Button._Style.TextOnly;
+            this.Buscar.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.Buscar.TabIndex = 69;
             this.Buscar.Text = "Scan channels";
             this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
@@ -570,13 +611,14 @@ namespace SKYNET.GUI
             this.addCT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addCT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.addCT.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.addCT.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.addCT.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.addCT.ImageIcon = null;
             this.addCT.Location = new System.Drawing.Point(12, 331);
+            this.addCT.MenuMode = false;
             this.addCT.Name = "addCT";
             this.addCT.Rounded = false;
             this.addCT.Size = new System.Drawing.Size(176, 24);
-            this.addCT.Style = SKYNET_Button._Style.TextOnly;
+            this.addCT.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.addCT.TabIndex = 73;
             this.addCT.Text = "Add Compliance Test";
             this.addCT.Click += new System.EventHandler(this.AddCT_Click);
@@ -589,13 +631,14 @@ namespace SKYNET.GUI
             this.RebootDevice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.RebootDevice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.RebootDevice.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.RebootDevice.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.RebootDevice.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.RebootDevice.ImageIcon = null;
             this.RebootDevice.Location = new System.Drawing.Point(451, 331);
+            this.RebootDevice.MenuMode = false;
             this.RebootDevice.Name = "RebootDevice";
             this.RebootDevice.Rounded = false;
             this.RebootDevice.Size = new System.Drawing.Size(159, 24);
-            this.RebootDevice.Style = SKYNET_Button._Style.TextOnly;
+            this.RebootDevice.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.RebootDevice.TabIndex = 72;
             this.RebootDevice.Text = "Restart device";
             this.RebootDevice.Click += new System.EventHandler(this.RebootDevice_Click);
@@ -690,5 +733,7 @@ namespace SKYNET.GUI
         public LoginBox username;
         private System.Windows.Forms.Panel panel8;
         private SKYNET_ComboBox ChannelList;
+        private SKYNET.Controls.SKYNET_Box BT_Minimize;
+        private SKYNET.Controls.SKYNET_Box BT_Close;
     }
 }

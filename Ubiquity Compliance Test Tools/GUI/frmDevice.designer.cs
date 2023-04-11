@@ -34,6 +34,7 @@ namespace SKYNET.GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevice));
             this.PN_Top = new System.Windows.Forms.Panel();
+            this.BT_Close = new SKYNET.Controls.SKYNET_Box();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -67,6 +68,7 @@ namespace SKYNET.GUI
             // PN_Top
             // 
             this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.PN_Top.Controls.Add(this.BT_Close);
             this.PN_Top.Controls.Add(this.tittleLbl);
             this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PN_Top.ForeColor = System.Drawing.Color.White;
@@ -74,6 +76,22 @@ namespace SKYNET.GUI
             this.PN_Top.Name = "PN_Top";
             this.PN_Top.Size = new System.Drawing.Size(954, 26);
             this.PN_Top.TabIndex = 5;
+            // 
+            // BT_Close
+            // 
+            this.BT_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_Close.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.BT_Close.Image = global::SKYNET.Properties.Resources.close;
+            this.BT_Close.ImageSize = 10;
+            this.BT_Close.Location = new System.Drawing.Point(920, 0);
+            this.BT_Close.MenuMode = false;
+            this.BT_Close.MenuSeparation = 8;
+            this.BT_Close.Name = "BT_Close";
+            this.BT_Close.Size = new System.Drawing.Size(34, 26);
+            this.BT_Close.TabIndex = 10;
+            this.BT_Close.BoxClicked += new System.EventHandler(this.BT_Close_BoxClicked);
             // 
             // tittleLbl
             // 
@@ -325,5 +343,6 @@ namespace SKYNET.GUI
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
         private DeviceView.Devices devices1;
+        private SKYNET.Controls.SKYNET_Box BT_Close;
     }
 }

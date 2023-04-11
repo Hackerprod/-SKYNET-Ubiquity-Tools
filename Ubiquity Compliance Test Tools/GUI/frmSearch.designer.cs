@@ -35,6 +35,7 @@ namespace SKYNET.GUI
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSearch));
             this.PN_Top = new System.Windows.Forms.Panel();
+            this.BT_Close = new SKYNET.Controls.SKYNET_Box();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -48,7 +49,7 @@ namespace SKYNET.GUI
             this.SignalLevel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.NoiceLevel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Quality = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.method1 = new SKYNET_Button();
+            this.method1 = new SKYNET.GUI.Controls.SKYNET_Button();
             this.PN_Top.SuspendLayout();
             this.panel3.SuspendLayout();
             this.DeviceContainer.SuspendLayout();
@@ -57,6 +58,7 @@ namespace SKYNET.GUI
             // PN_Top
             // 
             this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(46)))), ((int)(((byte)(51)))));
+            this.PN_Top.Controls.Add(this.BT_Close);
             this.PN_Top.Controls.Add(this.tittleLbl);
             this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
             this.PN_Top.ForeColor = System.Drawing.Color.White;
@@ -64,6 +66,22 @@ namespace SKYNET.GUI
             this.PN_Top.Name = "PN_Top";
             this.PN_Top.Size = new System.Drawing.Size(437, 26);
             this.PN_Top.TabIndex = 5;
+            // 
+            // BT_Close
+            // 
+            this.BT_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.BT_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BT_Close.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.BT_Close.Image = global::SKYNET.Properties.Resources.close;
+            this.BT_Close.ImageSize = 10;
+            this.BT_Close.Location = new System.Drawing.Point(403, 0);
+            this.BT_Close.MenuMode = false;
+            this.BT_Close.MenuSeparation = 8;
+            this.BT_Close.Name = "BT_Close";
+            this.BT_Close.Size = new System.Drawing.Size(34, 26);
+            this.BT_Close.TabIndex = 11;
+            this.BT_Close.BoxClicked += new System.EventHandler(this.BT_Close_BoxClicked);
             // 
             // tittleLbl
             // 
@@ -185,13 +203,14 @@ namespace SKYNET.GUI
             this.method1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.method1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.method1.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.method1.ImageAlignment = SKYNET_Button._ImgAlign.Left;
+            this.method1.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.method1.ImageIcon = null;
             this.method1.Location = new System.Drawing.Point(330, 266);
+            this.method1.MenuMode = false;
             this.method1.Name = "method1";
             this.method1.Rounded = false;
             this.method1.Size = new System.Drawing.Size(97, 24);
-            this.method1.Style = SKYNET_Button._Style.TextOnly;
+            this.method1.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.method1.TabIndex = 73;
             this.method1.Text = "Find";
             this.method1.Click += new System.EventHandler(this.Method_Click);
@@ -242,5 +261,6 @@ namespace SKYNET.GUI
         private System.Windows.Forms.ColumnHeader NoiceLevel;
         private System.Windows.Forms.ColumnHeader Quality;
         private System.Windows.Forms.TextBox textBox1;
+        private SKYNET.Controls.SKYNET_Box BT_Close;
     }
 }

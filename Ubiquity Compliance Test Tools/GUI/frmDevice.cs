@@ -260,5 +260,10 @@ namespace SKYNET.GUI
             DwmApi.MARGINS marInset = mARGINS;
             DwmApi.DwmExtendFrameIntoClientArea(base.Handle, ref marInset);
         }
+
+        private void BT_Close_BoxClicked(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
