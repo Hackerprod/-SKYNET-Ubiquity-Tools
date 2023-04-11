@@ -2,7 +2,7 @@
 
 using SKYNET.Properties;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
     partial class frmDevice
     {
@@ -33,9 +33,7 @@ namespace SKYNET
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevice));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CloseBox = new System.Windows.Forms.Panel();
-            this.ClosePic = new System.Windows.Forms.PictureBox();
+            this.PN_Top = new System.Windows.Forms.Panel();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -59,54 +57,23 @@ namespace SKYNET
             this.noisefloor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tx_latency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.signal_Remote = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel1.SuspendLayout();
-            this.CloseBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).BeginInit();
+            this.PN_Top.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             this.DeviceContainer.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // PN_Top
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.CloseBox);
-            this.panel1.Controls.Add(this.tittleLbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(1, 1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(954, 26);
-            this.panel1.TabIndex = 5;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            // 
-            // CloseBox
-            // 
-            this.CloseBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
-            this.CloseBox.Controls.Add(this.ClosePic);
-            this.CloseBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseBox.Location = new System.Drawing.Point(920, 0);
-            this.CloseBox.Name = "CloseBox";
-            this.CloseBox.Size = new System.Drawing.Size(34, 26);
-            this.CloseBox.TabIndex = 11;
-            this.CloseBox.Click += new System.EventHandler(this.closeBox_Click);
-            this.CloseBox.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.CloseBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // ClosePic
-            // 
-            this.ClosePic.Image = global::SKYNET.Properties.Resources.close11;
-            this.ClosePic.Location = new System.Drawing.Point(11, 7);
-            this.ClosePic.Name = "ClosePic";
-            this.ClosePic.Size = new System.Drawing.Size(13, 12);
-            this.ClosePic.TabIndex = 4;
-            this.ClosePic.TabStop = false;
-            this.ClosePic.Click += new System.EventHandler(this.closeBox_Click);
-            this.ClosePic.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.ClosePic.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
+            this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.PN_Top.Controls.Add(this.tittleLbl);
+            this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PN_Top.ForeColor = System.Drawing.Color.White;
+            this.PN_Top.Location = new System.Drawing.Point(1, 1);
+            this.PN_Top.Name = "PN_Top";
+            this.PN_Top.Size = new System.Drawing.Size(954, 26);
+            this.PN_Top.TabIndex = 5;
             // 
             // tittleLbl
             // 
@@ -117,10 +84,6 @@ namespace SKYNET
             this.tittleLbl.Size = new System.Drawing.Size(103, 16);
             this.tittleLbl.TabIndex = 7;
             this.tittleLbl.Text = "Team Channels";
-            this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
-            this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.tittleLbl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
             // 
             // acceptBtn
             // 
@@ -213,9 +176,6 @@ namespace SKYNET
             this.devices1.Size = new System.Drawing.Size(455, 229);
             this.devices1.TabIndex = 2;
             this.devices1.Visible = false;
-            this.devices1.MouseLeave += new System.EventHandler(this.Devices1_MouseLeave);
-            this.devices1.MouseHover += new System.EventHandler(this.Devices1_MouseHover);
-            this.devices1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Devices1_MouseMove);
             // 
             // _lvAliveHosts
             // 
@@ -316,25 +276,20 @@ namespace SKYNET
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.Browser);
             this.Controls.Add(this.acceptBtn);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PN_Top);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1440, 860);
             this.Name = "frmDevice";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubiquity Compliance Test Tool";
             this.Deactivate += new System.EventHandler(this.FrmDiscovery_Deactivate);
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmConnection_FormClosing);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.CloseBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).EndInit();
+            this.PN_Top.ResumeLayout(false);
+            this.PN_Top.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -346,11 +301,9 @@ namespace SKYNET
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PN_Top;
         private System.Windows.Forms.Button acceptBtn;
         private System.Windows.Forms.WebBrowser Browser;
-        private System.Windows.Forms.Panel CloseBox;
-        private System.Windows.Forms.PictureBox ClosePic;
         public System.Windows.Forms.Label tittleLbl;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;

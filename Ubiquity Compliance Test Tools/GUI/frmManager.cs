@@ -1,37 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
-using mshtml;
-using Microsoft.VisualBasic.CompilerServices;
 using System.ComponentModel;
 using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using System.Drawing.Imaging;
 using System.Threading;
-using SKYNET.Server;
-using SKYNET.LOG;
-using System.Timers;
-using Microsoft.VisualBasic;
 using Renci.SshNet;
 using System.Net.NetworkInformation;
-using SKYNET.Properties;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
-    [ComVisibleAttribute(true)]
-    public partial class frmManager : Form
+    public partial class frmManager : frmBase
     {
-        private bool mouseDown;     //Mover ventana
-        private Point lastLocation; //Mover ventana
-        private readonly Dictionary<string, string> UsersAndIds = new Dictionary<string, string>();
         public static frmManager frm;
-        private static ILog ilog_0;
-        public StringBuilder HtmlString;
-        public bool Searching;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
+        private const int WM_VSCROLL = 277;
+        private const int SB_PAGEBOTTOM = 7;
+
         private bool connected;
+        private SshCommand sshCommand;
 
         public bool Connected
         {
@@ -46,8 +36,8 @@ namespace SKYNET
                     if (!pingWorker.IsBusy)
                         pingWorker.RunWorkerAsync();
 
-                    modCommon.SetVisibleControl(PingLabel, true);
-                    modCommon.SetVisibleControl(lblping, true);
+                    Common.SetVisibleControl(PingLabel, true);
+                    Common.SetVisibleControl(lblping, true);
 
                 }
                 else 
@@ -60,8 +50,8 @@ namespace SKYNET
                     CountryLabel.Text = "Offline";
                     StatusLabel.Text = "Offline";
 
-                    modCommon.SetVisibleControl(PingLabel, false);
-                    modCommon.SetVisibleControl(lblping, false);
+                    Common.SetVisibleControl(PingLabel, false);
+                    Common.SetVisibleControl(lblping, false);
 
                     pingWorker.CancelAsync();
                 }
@@ -74,14 +64,13 @@ namespace SKYNET
             InitializeComponent();
             frm = this;
             CheckForIllegalCrossThreadCalls = false;
-
-            ilog_0 = new ILog();
+            SetMouseMove(PN_Top);
             frmMain.frm.Visible = false;
         }
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             Connected = false;
-
             Initialize();
         }
 
@@ -94,17 +83,17 @@ namespace SKYNET
             username.Text = frmMain.frm.username.Text;
 
             //Obtener lista de canales
-            for (int i = 0; i < modCommon.device.ChannelList.Count; i++)
+            for (int i = 0; i < Common.device.ChannelList.Count; i++)
             {
-                ChannelList.Items.Add(modCommon.device.ChannelList[i]);
+                ChannelList.Items.Add(Common.device.ChannelList[i]);
             }
-            if (modCommon.device.Channel != "")
+            if (Common.device.Channel != "")
             {
-                if (modCommon.device.Channel.Length == 1) modCommon.device.Channel = "0" + modCommon.device.Channel;
+                if (Common.device.Channel.Length == 1) Common.device.Channel = "0" + Common.device.Channel;
 
                 for (int i = 0; i < ChannelList.Items.Count; i++)
                 {
-                    if (ChannelList.Items[i].ToString().Contains(" " + modCommon.device.Channel + " "))
+                    if (ChannelList.Items[i].ToString().Contains(" " + Common.device.Channel + " "))
                     {
                         ChannelList.SelectedIndex = i;
                     }
@@ -112,89 +101,20 @@ namespace SKYNET
             }
 
             //Maxima potencia
-            int Maxpower = Convert.ToInt32(modCommon.device.MaxPower);
+            int Maxpower = Convert.ToInt32(Common.device.MaxPower);
             PowerBar.Maximum = Maxpower;
 
             //Potencia actual
-            int currentpower = Convert.ToInt32(modCommon.device.Power);
+            int currentpower = Convert.ToInt32(Common.device.Power);
             PowerBar.Value = currentpower;
-            CurrentPower.Text = modCommon.device.Power;
+            CurrentPower.Text = Common.device.Power;
 
             Connected = true;
         }
 
-
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
-        private const int WM_VSCROLL = 277;
-        private const int SB_PAGEBOTTOM = 7;
         public static void ScrollToBottom(RichTextBox MyRichTextBox)
         {
             SendMessage(MyRichTextBox.Handle, WM_VSCROLL, (IntPtr)SB_PAGEBOTTOM, IntPtr.Zero);
-        }
-
-        private void closeBox_Click(object sender, EventArgs e)
-        {
-            frmMain.frm.Visible = true;
-            Close();
-        }
-
-        private void Control_MouseMove(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                Control control = (Control)sender;
-                if (control is PictureBox)
-                {
-                    switch (control.Name)
-                    {
-                        case "ClosePic": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                        case "MinPic": MinBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-                if (control is Panel)
-                {
-                    switch (control.Name)
-                    {
-                        case "CloseBox": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                        case "MinBox": MinBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-            }   catch { }
-        }
-
-        private void Control_MouseLeave(object sender, EventArgs e)
-        {
-            MinBox.BackColor = Color.FromArgb(43, 54, 68);
-            CloseBox.BackColor = Color.FromArgb(43, 54, 68);
-        }
-
-        private void Event_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                Location = new Point((Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
-                Update();
-                Opacity = 0.93;
-            }
-        }
-
-        private void Event_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-
-        }
-
-        private void Event_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-            Opacity = 100;
-        }
-
-        private void Minimize_click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
 
         internal void Write(object mess, MessageType mtype = MessageType.INFO)
@@ -205,8 +125,8 @@ namespace SKYNET
             string time = " " + DateTime.Now.ToShortTimeString() + " ";
 
             WriteLine(mtype, time, mtype.ToString(), " " + mess.ToString());
-
         }
+
         private void WriteLine(MessageType type, string text1, string resaltar = "", string text2 = "")
         {
             Color color = Color.FromArgb(147, 157, 160);
@@ -240,19 +160,6 @@ namespace SKYNET
             //rtbLogs.ScrollToCaret();
         }
 
-        private void TittleLbl_Click(object sender, EventArgs e)
-        {
-            if (modCommon.Hackerprod)
-            {
-                Write(modCommon.sshClient.IsConnected, MessageType.INFO);
-            }
-        }
-
-
-
-
-        private SshCommand sshCommand;
-
         private void RichTextBox1_TextChanged(object sender, EventArgs e)
         {
             ScrollToBottom(rtbLogs);
@@ -261,7 +168,7 @@ namespace SKYNET
         private void PingWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             bool start = true;
-            string server = modCommon.device.Server;
+            string server = Common.device.Server;
 
             while (start)
             {
@@ -308,6 +215,7 @@ namespace SKYNET
         {
             DeviceLabel.Focus();
         }
+
         private void PowerBar_MouseMove(object sender, MouseEventArgs e)
         {
             CurrentPower.Text = PowerBar.Value.ToString();
@@ -320,72 +228,56 @@ namespace SKYNET
             channel = part[4];
 
 
-            if (!modCommon.sshClient.IsConnected)
+            if (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
             if (!string.IsNullOrEmpty(channel))
             {
-                sshCommand = modCommon.sshClient.RunCommand("iwconfig ath0 channel " + channel + "&& save");
+                sshCommand = Common.sshClient.RunCommand("iwconfig ath0 channel " + channel + "&& save");
                 Write("The device has switched to the channel " + channel);
             }
-            modCommon.device.Channel = channel;
+            Common.device.Channel = channel;
         }
 
         private void SetPower_Click(object sender, EventArgs e)
         {
 
-            if (!modCommon.sshClient.IsConnected)
+            if (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
-            sshCommand = modCommon.sshClient.RunCommand("iwconfig ath0 txpower " + PowerBar.Value.ToString() + "&& save");
-            sshCommand = modCommon.sshClient.RunCommand("save");
-            sshCommand = modCommon.sshClient.RunCommand("sed -i '/radio.1.txpower/c\\radio.1.txpower=" + PowerBar.Value.ToString() + "' /tmp/system.cfg && cfgmtd -f /tmp/system.cfg -w && save");
+            sshCommand = Common.sshClient.RunCommand("iwconfig ath0 txpower " + PowerBar.Value.ToString() + "&& save");
+            sshCommand = Common.sshClient.RunCommand("save");
+            sshCommand = Common.sshClient.RunCommand("sed -i '/radio.1.txpower/c\\radio.1.txpower=" + PowerBar.Value.ToString() + "' /tmp/system.cfg && cfgmtd -f /tmp/system.cfg -w && save");
 
             Write("La potencia del equipo se ha cambiado a " + PowerBar.Value.ToString() + "dBm");
 
-            modCommon.device.Power = PowerBar.Value.ToString();
-        }
-
-        private void AnchoChannel_Click(object sender, EventArgs e)
-        {
-
+            Common.device.Power = PowerBar.Value.ToString();
         }
 
         private void DeviceLabel_TextChanged(object sender, EventArgs e)
         {
-            DeviceLogo.Image = modCommon.GetDeviceImage(DeviceLabel.Text);
-        }
-
-        private void FrmManager_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void DeviceDetect_Click(object sender, EventArgs e)
-        {
-            frmDiscovery discovery = new frmDiscovery();
-            discovery.Show();
+            DeviceLogo.Image = Common.GetDeviceImage(DeviceLabel.Text);
         }
 
         private void RebootDevice_Click(object sender, EventArgs e)
         {
-            if (!modCommon.sshClient.IsConnected)
+            if (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
-            sshCommand = modCommon.sshClient.RunCommand("reboot");
+            sshCommand = Common.sshClient.RunCommand("reboot");
             Write("Restarting device", MessageType.WARN);
         }
 
         private void AddCT_Click(object sender, EventArgs e)
         {
-            if (!modCommon.sshClient.IsConnected)
+            if (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
-            SshCommand sshCommand = modCommon.sshClient.RunCommand("echo '<option value='511' > Compliance Test</option>' >> /var/etc/ccodes.inc && cfgmtd -f /var/etc/ccodes.inc -w && save");
+            SshCommand sshCommand = Common.sshClient.RunCommand("echo '<option value='511' > Compliance Test</option>' >> /var/etc/ccodes.inc && cfgmtd -f /var/etc/ccodes.inc -w && save");
 
             Write("Compliance Test added to the list of countries", MessageType.INFO);
 
@@ -393,16 +285,16 @@ namespace SKYNET
 
         private void Cambiar_Click(object sender, EventArgs e)
         {
-            if (!modCommon.sshClient.IsConnected)
+            if (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
 
-            SshCommand sshCommand = modCommon.sshClient.RunCommand("grep 'users.1.name=' /tmp/system.cfg");
+            SshCommand sshCommand = Common.sshClient.RunCommand("grep 'users.1.name=' /tmp/system.cfg");
             string currentuser = sshCommand.Result.Replace("users.1.name=", "");
             currentuser = currentuser.Remove(currentuser.Length - 1, 1);
             Write(currentuser.Length);
-            sshCommand = modCommon.sshClient.RunCommand("sed -i 's/users.1.name=" + currentuser + "/users.1.name=" + username.Text + "/g' /tmp/system.cfg && cfgmtd -f /tmp/system.cfg -w && save");
+            sshCommand = Common.sshClient.RunCommand("sed -i 's/users.1.name=" + currentuser + "/users.1.name=" + username.Text + "/g' /tmp/system.cfg && cfgmtd -f /tmp/system.cfg -w && save");
             Write("Username changed, you must restart the device for the changes to take effect", MessageType.INFO);
             frmMain.frm.username.Text = username.Text;
             RegistrySettings.SaveSettings();
@@ -430,17 +322,13 @@ namespace SKYNET
 
             //new frmSearch().ShowDialog();
             new frmConnection(channels, chann).ShowDialog();
-            
-        }
-
-        private void Label8_Click(object sender, EventArgs e)
-        {
         }
 
         private void Stations_Click(object sender, EventArgs e)
         {
             new frmDevice().ShowDialog();
         }
+
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
@@ -454,8 +342,6 @@ namespace SKYNET
             mARGINS.cyTopHeight = 0;
             DwmApi.MARGINS marInset = mARGINS;
             DwmApi.DwmExtendFrameIntoClientArea(base.Handle, ref marInset);
-
         }
-
     }
 }

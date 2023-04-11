@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic.CompilerServices;
 using SKYNET;
+using SKYNET.GUI;
 
 namespace SkynetChat.Controles
 {
@@ -84,7 +85,7 @@ namespace SkynetChat.Controles
             {
                 _Device = value;
                 device.Text = value;
-                Icon.Image = modCommon.GetDeviceImage(value);
+                Icon.Image = Common.GetDeviceImage(value);
             }
         }
 

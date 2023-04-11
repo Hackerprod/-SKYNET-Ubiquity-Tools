@@ -6,6 +6,7 @@ using Renci.SshNet.Security.Cryptography;
 using Renci.SshNet.Security.Cryptography.Ciphers;
 using Renci.SshNet.Security.Cryptography.Ciphers.Modes;
 using SKYNET;
+using SKYNET.GUI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -473,7 +474,7 @@ namespace Renci.SshNet
 				IsAuthenticated = (authenticationResult == AuthenticationResult.Success);
 				if (!IsAuthenticated)
 				{
-				    frmMain.frm.Write("No se ha podido autentificar... usuario o contraseña incorrecta.", SKYNET.LOG.MessageType.ERROR);
+				    frmMain.frm.Write("No se ha podido autentificar... usuario o contraseña incorrecta.", MessageType.ERROR);
                     frmMain.frm.Connected = false;
 				}
 			}

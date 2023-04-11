@@ -1,8 +1,9 @@
 ﻿
 
+using SKYNET.GUI.Controls;
 using SKYNET.Properties;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
     partial class frmDiscovery
     {
@@ -33,9 +34,7 @@ namespace SKYNET
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDiscovery));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.CloseBox = new System.Windows.Forms.Panel();
-            this.ClosePic = new System.Windows.Forms.PictureBox();
+            this.PN_Top = new System.Windows.Forms.Panel();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -43,74 +42,39 @@ namespace SKYNET
             this.label1 = new System.Windows.Forms.Label();
             this.DiscoverWorker = new System.ComponentModel.BackgroundWorker();
             this.panelSeparator = new System.Windows.Forms.Panel();
-            this.Recargar = new FlatButton();
+            this.Recargar = new SKYNET_Button();
             this.DeviceContainer = new System.Windows.Forms.Panel();
             this.usarParaConectarPorSSHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirEquipoDesdeLaWebToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarDatoDeEsteEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarDatosDeTodosLosEquiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BoxMenu = new FlatContextMenuStrip();
-            this.panel1.SuspendLayout();
-            this.CloseBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).BeginInit();
+            this.BoxMenu = new SKYNET_ContextMenuStrip();
+            this.PN_Top.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelSeparator.SuspendLayout();
             this.BoxMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // PN_Top
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.CloseBox);
-            this.panel1.Controls.Add(this.tittleLbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(360, 26);
-            this.panel1.TabIndex = 5;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            // 
-            // CloseBox
-            // 
-            this.CloseBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.CloseBox.Controls.Add(this.ClosePic);
-            this.CloseBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseBox.Location = new System.Drawing.Point(326, 0);
-            this.CloseBox.Name = "CloseBox";
-            this.CloseBox.Size = new System.Drawing.Size(34, 26);
-            this.CloseBox.TabIndex = 11;
-            this.CloseBox.Click += new System.EventHandler(this.closeBox_Click);
-            this.CloseBox.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.CloseBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // ClosePic
-            // 
-            this.ClosePic.Image = global::SKYNET.Properties.Resources.close11;
-            this.ClosePic.Location = new System.Drawing.Point(11, 7);
-            this.ClosePic.Name = "ClosePic";
-            this.ClosePic.Size = new System.Drawing.Size(13, 12);
-            this.ClosePic.TabIndex = 4;
-            this.ClosePic.TabStop = false;
-            this.ClosePic.Click += new System.EventHandler(this.closeBox_Click);
-            this.ClosePic.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.ClosePic.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
+            this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.PN_Top.Controls.Add(this.tittleLbl);
+            this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PN_Top.ForeColor = System.Drawing.Color.White;
+            this.PN_Top.Location = new System.Drawing.Point(0, 0);
+            this.PN_Top.Name = "PN_Top";
+            this.PN_Top.Size = new System.Drawing.Size(360, 26);
+            this.PN_Top.TabIndex = 5;
             // 
             // tittleLbl
             // 
             this.tittleLbl.AutoSize = true;
-            this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F);
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(227, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(193, 16);
             this.tittleLbl.TabIndex = 7;
             this.tittleLbl.Text = "Detection of device on the network";
-            this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
-            this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.tittleLbl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
             // 
             // acceptBtn
             // 
@@ -171,13 +135,13 @@ namespace SKYNET
             this.Recargar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Recargar.ForeColor = System.Drawing.Color.White;
             this.Recargar.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Recargar.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.Recargar.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.Recargar.ImageIcon = null;
             this.Recargar.Location = new System.Drawing.Point(4, 7);
             this.Recargar.Name = "Recargar";
             this.Recargar.Rounded = false;
             this.Recargar.Size = new System.Drawing.Size(141, 24);
-            this.Recargar.Style = FlatButton._Style.TextOnly;
+            this.Recargar.Style = SKYNET_Button._Style.TextOnly;
             this.Recargar.TabIndex = 72;
             this.Recargar.Text = "Detectar dispositivos";
             this.Recargar.Click += new System.EventHandler(this.Recargar_Click);
@@ -243,24 +207,19 @@ namespace SKYNET
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.Browser);
             this.Controls.Add(this.acceptBtn);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PN_Top);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1440, 860);
             this.Name = "frmDiscovery";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubiquity Compliance Test Tool";
-            this.Deactivate += new System.EventHandler(this.FrmDiscovery_Deactivate);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.CloseBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).EndInit();
+            this.PN_Top.ResumeLayout(false);
+            this.PN_Top.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panelSeparator.ResumeLayout(false);
@@ -270,22 +229,20 @@ namespace SKYNET
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PN_Top;
         private System.Windows.Forms.Button acceptBtn;
         private System.Windows.Forms.WebBrowser Browser;
-        private System.Windows.Forms.Panel CloseBox;
-        private System.Windows.Forms.PictureBox ClosePic;
         public System.Windows.Forms.Label tittleLbl;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker DiscoverWorker;
         private System.Windows.Forms.Panel panelSeparator;
         private System.Windows.Forms.Panel DeviceContainer;
-        private FlatButton Recargar;
+        private SKYNET_Button Recargar;
         private System.Windows.Forms.ToolStripMenuItem usarParaConectarPorSSHToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem abrirEquipoDesdeLaWebToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarDatoDeEsteEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarDatosDeTodosLosEquiposToolStripMenuItem;
-        public FlatContextMenuStrip BoxMenu;
+        public SKYNET_ContextMenuStrip BoxMenu;
     }
 }

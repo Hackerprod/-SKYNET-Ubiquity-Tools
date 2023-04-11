@@ -1,30 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Threading;
-using SKYNET.LOG;
 using Renci.SshNet;
 using SkynetChat.Controles;
 using UbntDiscovery;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
     [ComVisibleAttribute(true)]
-    public partial class frmDiscovery : Form
+    public partial class frmDiscovery : frmBase
     {
-        private bool mouseDown;     //Mover ventana
-        private Point lastLocation; //Mover ventana
-        private readonly Dictionary<string, string> UsersAndIds = new Dictionary<string, string>();
         public static frmDiscovery frm;
-        private static ILog ilog_0;
-        public StringBuilder HtmlString;
         public bool Searching;
         private SshCommand sshCommand;
         private int deviceDiscovereds;
@@ -42,9 +33,9 @@ namespace SKYNET
             frm = this;
             CheckForIllegalCrossThreadCalls = false;
 
-            ilog_0 = new ILog();
-            //deviceDiscovereds = new List<DeviceDiscovered>();
+            SetMouseMove(PN_Top);
         }
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             label1.Text = "Buscando dispositivos en la red";
@@ -67,7 +58,7 @@ namespace SKYNET
 
                 Modo = device.WirelessModeDescription,
                 SSID = device.SSID,
-                Firmware = modCommon.Firmware(device.Firmware),
+                Firmware = Common.Firmware(device.Firmware),
                 Uptime = device.Uptime.ToString("d\\d\\ hh\\:mm\\:ss"),
                 //StringFormat = '{}{0:d\\d\\ hh\\:mm\\:ss}'}
 
@@ -77,68 +68,7 @@ namespace SKYNET
             });
             y = y + 62;
 
-            label1.Text = deviceDiscovereds + " dispositivos encontrados";
-
-        }
-
-        private void closeBox_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void Control_MouseMove(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                Control control = (Control)sender;
-                if (control is PictureBox)
-                {
-                    switch (control.Name)
-                    {
-                        case "ClosePic": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-                if (control is Panel)
-                {
-                    switch (control.Name)
-                    {
-                        case "CloseBox": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-            }   catch { }
-        }
-
-        private void Control_MouseLeave(object sender, EventArgs e)
-        {
-            CloseBox.BackColor = Color.FromArgb(43, 54, 68);
-        }
-
-        private void Event_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                Location = new Point((Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
-                Update();
-                Opacity = 0.93;
-            }
-        }
-
-        private void Event_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-
-        }
-
-        private void Event_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-            Opacity = 100;
-        }
-
-        private void TittleLbl_Click(object sender, EventArgs e)
-        {
-
+            label1.Text = deviceDiscovereds + " founded devices";
         }
 
         private void DiscoverWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -154,13 +84,11 @@ namespace SKYNET
                     Recargar.Enabled = true;
                 }
             }
-
         }
-
 
         private void Recargar_Click(object sender, EventArgs e)
         {
-            label1.Text = "Buscando dispositivos en la red";
+            label1.Text = "Searching devices in network";
             
             deviceDiscovereds = 0;
             y = 7;
@@ -188,11 +116,6 @@ namespace SKYNET
             {
                 //MessageBox.Show(e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        private void FrmDiscovery_Deactivate(object sender, EventArgs e)
-        {
-            //Close();
         }
 
         private void UsarParaConectarPorSSHToolStripMenuItem_Click(object sender, EventArgs e)
@@ -233,8 +156,6 @@ namespace SKYNET
             }
         }
 
-
-
         private void GuardarDatosDeTodosLosEquiposToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string result = "Devices in the Network" + Environment.NewLine + "/////////////////////////////////////////////////////////////////";
@@ -256,12 +177,14 @@ namespace SKYNET
                     "/////////////////////////////////////////////////////////////////";
                 }
             }
-            SaveFileDialog dialog = new SaveFileDialog
+
+            var dialog = new SaveFileDialog
             {
                 Filter = "All files (*.*)|*.*",
                 FileName = "Devices" + ".txt",
             };
-            DialogResult Dresult = dialog.ShowDialog();
+
+            var Dresult = dialog.ShowDialog();
             if (Dresult == DialogResult.OK)
             {
                 File.WriteAllText(dialog.FileName, result);
@@ -269,10 +192,6 @@ namespace SKYNET
 
         }
 
-        private void SaveFile(BoxTool boxTool)
-        {
-
-        }
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
@@ -286,8 +205,6 @@ namespace SKYNET
             mARGINS.cyTopHeight = 0;
             DwmApi.MARGINS marInset = mARGINS;
             DwmApi.DwmExtendFrameIntoClientArea(base.Handle, ref marInset);
-
         }
-
     }
 }

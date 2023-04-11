@@ -3,153 +3,45 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using System.ComponentModel;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Threading;
-using SKYNET.LOG;
 using Renci.SshNet;
-using UbntDiscovery;
 using System.Web.Script.Serialization;
+using SKYNET.Models;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
-    [ComVisibleAttribute(true)]
-    public partial class frmConnection : Form
+    public partial class frmConnection : frmBase
     {
-        private bool mouseDown;     //Mover ventana
-        private Point lastLocation; //Mover ventana
-        private readonly Dictionary<string, string> UsersAndIds = new Dictionary<string, string>();
         public static frmConnection frm;
-        private static ILog ilog_0;
-        public StringBuilder HtmlString;
-        public bool Searching;
-        private SshCommand sshCommand;
-        private int deviceDiscovereds;
-        private int y = 7;
 
-        public DeviceDiscovery DeviceDiscovery { get; private set; }
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
+        private const int WM_VSCROLL = 277;
+        private const int SB_PAGEBOTTOM = 7;
 
-        private CancellationTokenSource _cts;
-        private Task discoveryTask;
         private int colorNum;
-        List<int> Channels;
+        private List<int> Channels;
         private string CurrentChannel;
+
+        private string LastChannel;
+        private Color LastColor;
+        private Color Color1;
+        private Color Color2;
 
         public frmConnection(List<int> channels, string currentChannel)
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
             frm = this;
             Channels = channels;
             CurrentChannel = currentChannel;
             Channels.Sort((s1, s2) => s1.CompareTo(s2));
-
-            CheckForIllegalCrossThreadCalls = false;
-
-            ilog_0 = new ILog();
-            //deviceDiscovereds = new List<DeviceDiscovered>();
-
-        }
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
+            SetMouseMove(PN_Top);
         }
 
-        private void closeBox_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void Control_MouseMove(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                Control control = (Control)sender;
-                if (control is PictureBox)
-                {
-                    switch (control.Name)
-                    {
-                        case "ClosePic": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-                if (control is Panel)
-                {
-                    switch (control.Name)
-                    {
-                        case "CloseBox": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-            }   catch { }
-        }
-
-        private void Control_MouseLeave(object sender, EventArgs e)
-        {
-            CloseBox.BackColor = Color.FromArgb(43, 54, 68);
-        }
-
-        private void Event_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                Location = new Point((Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
-                Update();
-                Opacity = 0.93;
-            }
-        }
-
-        private void Event_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-
-        }
-
-        private void Event_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-            Opacity = 100;
-        }
-
-        private void TittleLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DiscoverWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            while (true)
-            {
-                if (DeviceDiscovery.IsScanning)
-                {
-                    method1.Enabled = false;
-                }
-                else
-                {
-                    method1.Enabled = true;
-                }
-            }
-
-        }
-
-
-        private void FrmDiscovery_Deactivate(object sender, EventArgs e)
-        {
-            //Close();
-        }
-
-
-        private void Mothod_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Mothod_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-        Thread StartSearch;
         private void Method_Click(object sender, EventArgs e)
         {
             Thread searhThread = new Thread(Go);
@@ -180,9 +72,9 @@ namespace SKYNET
 
                 string Channel = Channels[i].ToString();
 
-                if (!modCommon.sshClient.IsConnected)
+                if (!Common.sshClient.IsConnected)
                 {
-                    modCommon.sshClient.Connect();
+                    Common.sshClient.Connect();
                 }
                 if (!string.IsNullOrEmpty(Channels[i].ToString()))
                 {
@@ -190,20 +82,20 @@ namespace SKYNET
                     {
                         Channel = "00";
                     }
-                    sshCommand = modCommon.sshClient.RunCommand("iwconfig ath0 channel " + Channel + "&& save");
+                    sshCommand = Common.sshClient.RunCommand("iwconfig ath0 channel " + Channel + "&& save");
                     Write("Cambiando al canal " + Channel);
                 }
 
-                if (!modCommon.sshClient.IsConnected)
+                if (!Common.sshClient.IsConnected)
                 {
-                    modCommon.sshClient.Connect();
+                    Common.sshClient.Connect();
                 }
 
                 Write("Esperando 60 segundos para comprobar calidad");
                 Thread.Sleep(60000);
 
                 Write("Chequeando calidad de las estaciones");
-                sshCommand = modCommon.sshClient.RunCommand("wstalist");
+                sshCommand = Common.sshClient.RunCommand("wstalist");
 
                 string Result = sshCommand.Result;
 
@@ -253,11 +145,11 @@ namespace SKYNET
             SetBestSignal(BestSignal.Channel);
             label1.Text = "Best average signal, channel  " + BestSignal.Channel + ", average signal " + BestSignal.Average + " dbm";
 
-            if (!modCommon.sshClient.IsConnected)
+            if (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
-            sshCommand = modCommon.sshClient.RunCommand("iwconfig ath0 channel " + CurrentChannel + "&& save");
+            sshCommand = Common.sshClient.RunCommand("iwconfig ath0 channel " + CurrentChannel + "&& save");
             progressBar1.Visible = false;
         }
 
@@ -272,6 +164,7 @@ namespace SKYNET
             stringBuilder.AppendFormat("{0:d2} : {1:d2} : {2:d2}", duration.Hours, duration.Minutes, duration.Seconds);
             return stringBuilder.ToString();
         }
+
         private void SetBestSignal(string channel)
         {
             foreach (ListViewItem item in _lvAliveHosts.Items)
@@ -282,6 +175,7 @@ namespace SKYNET
                 }
             }
         }
+
         private void Write(object v)
         {
             txt.Text += v.ToString() + Environment.NewLine;
@@ -290,7 +184,6 @@ namespace SKYNET
         private void AddClient(DeviceClient device, string channel)
         {
             Color backColor = GetBackClolor(channel);
-
 
             try
             {
@@ -347,14 +240,8 @@ namespace SKYNET
             catch (Exception)
             {
             }
-
             //30, 31, 34
         }
-
-        string LastChannel;
-        Color LastColor;
-        Color Color1;
-        Color Color2;
 
         private Color GetBackClolor(string channel)
         {
@@ -383,26 +270,11 @@ namespace SKYNET
             return back;
         }
 
-        private void FrmConnection_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (StartSearch != null)
-            {
-                if (!StartSearch.IsAlive)
-                {
-                    StartSearch.Abort();
-                }
-            }
-        }
-
         private void Txt_TextChanged(object sender, EventArgs e)
         {
             ScrollToBottom(txt);
         }
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
-        private const int WM_VSCROLL = 277;
-        private const int SB_PAGEBOTTOM = 7;
         public static void ScrollToBottom(RichTextBox MyRichTextBox)
         {
             SendMessage(MyRichTextBox.Handle, WM_VSCROLL, (IntPtr)SB_PAGEBOTTOM, IntPtr.Zero);
@@ -460,7 +332,7 @@ namespace SKYNET
                         {
                             average += client.signal;
                             count++;
-                            //modCommon.Show(client.signal);
+                            //Common.Show(client.signal);
                         }
                     }
                 }
@@ -482,9 +354,7 @@ namespace SKYNET
             }
             SetBestSignal(BestSignal.Channel);
             label1.Text = "Best average signal, channel  " + BestSignal.Channel + ", average signal " + BestSignal.Average + " dbm";
-
         }
-
 
         private void _lvAliveHosts_DoubleClick(object sender, EventArgs e)
         {
@@ -497,6 +367,7 @@ namespace SKYNET
             }
             catch { }
         }
+
         private List<ListViewItem> GetItemsFromName(string name)
         {
             List<ListViewItem> Items = new List<ListViewItem>();
@@ -516,6 +387,7 @@ namespace SKYNET
             }
             return Items;
         }
+
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
@@ -529,8 +401,6 @@ namespace SKYNET
             mARGINS.cyTopHeight = 0;
             DwmApi.MARGINS marInset = mARGINS;
             DwmApi.DwmExtendFrameIntoClientArea(base.Handle, ref marInset);
-
         }
-
     }
 }

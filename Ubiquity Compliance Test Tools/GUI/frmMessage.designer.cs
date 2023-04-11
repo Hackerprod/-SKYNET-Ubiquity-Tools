@@ -1,47 +1,49 @@
-﻿using XNova_Utils.Others;
+﻿using SKYNET.GUI.Controls;
 
-partial class frmMessage
+namespace SKYNET.GUI
 {
-    /// <summary>
-    /// Required designer variable.
-    /// </summary>
-    private System.ComponentModel.IContainer components = null;
-
-    /// <summary>
-    /// Clean up any resources being used.
-    /// </summary>
-    /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-    protected override void Dispose(bool disposing)
+    partial class frmMessage
     {
-        if (disposing && (components != null))
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
         {
-            components.Dispose();
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
         }
-        base.Dispose(disposing);
-    }
 
-    #region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
-    /// <summary>
-    /// Required method for Designer support - do not modify
-    /// the contents of this method with the code editor.
-    /// </summary>
-    private void InitializeComponent()
-    {
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMessage));
             this.acceptBtn = new System.Windows.Forms.Button();
             this.ok = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.acepctBtn = new FlatButton();
-            this.cancelBtn = new FlatButton();
+            this.acepctBtn = new SKYNET_Button();
+            this.cancelBtn = new SKYNET_Button();
             this.panel15 = new System.Windows.Forms.Panel();
             this.Cancel = new System.Windows.Forms.Button();
-            this.txtMessage = new XNova_Utils.Others.FlatTextBox2();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtMessage = new SKYNET_TextBox();
+            this.PN_Top = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.PN_Top.SuspendLayout();
             this.SuspendLayout();
             // 
             // acceptBtn
@@ -70,15 +72,12 @@ partial class frmMessage
             this.panel1.Controls.Add(this.acepctBtn);
             this.panel1.Controls.Add(this.cancelBtn);
             this.panel1.Controls.Add(this.panel15);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.PN_Top);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(1, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(475, 193);
             this.panel1.TabIndex = 25;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
             // 
             // acepctBtn
             // 
@@ -88,13 +87,13 @@ partial class frmMessage
             this.acepctBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.acepctBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.acepctBtn.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.acepctBtn.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.acepctBtn.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.acepctBtn.ImageIcon = null;
             this.acepctBtn.Location = new System.Drawing.Point(273, 152);
             this.acepctBtn.Name = "acepctBtn";
             this.acepctBtn.Rounded = false;
             this.acepctBtn.Size = new System.Drawing.Size(93, 29);
-            this.acepctBtn.Style = FlatButton._Style.TextOnly;
+            this.acepctBtn.Style = SKYNET_Button._Style.TextOnly;
             this.acepctBtn.TabIndex = 27;
             this.acepctBtn.Text = "OK";
             this.acepctBtn.Click += new System.EventHandler(this.acepctBtn_Click);
@@ -107,13 +106,13 @@ partial class frmMessage
             this.cancelBtn.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cancelBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.cancelBtn.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.cancelBtn.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.cancelBtn.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.cancelBtn.ImageIcon = null;
             this.cancelBtn.Location = new System.Drawing.Point(372, 152);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Rounded = false;
             this.cancelBtn.Size = new System.Drawing.Size(93, 29);
-            this.cancelBtn.Style = FlatButton._Style.TextOnly;
+            this.cancelBtn.Style = SKYNET_Button._Style.TextOnly;
             this.cancelBtn.TabIndex = 26;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
@@ -143,33 +142,23 @@ partial class frmMessage
             // txtMessage
             // 
             this.txtMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(32)))));
-            this.txtMessage.BackColorControl = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(29)))), ((int)(((byte)(32)))));
             this.txtMessage.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtMessage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txtMessage.isCustomColor = false;
             this.txtMessage.Location = new System.Drawing.Point(12, 10);
-            this.txtMessage.MaxLength = 32767;
-            this.txtMessage.Multiline = true;
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.ReadOnly = true;
             this.txtMessage.Size = new System.Drawing.Size(453, 105);
             this.txtMessage.TabIndex = 27;
-            this.txtMessage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtMessage.UseSystemPasswordChar = false;
             // 
-            // panel2
+            // PN_Top
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(475, 26);
-            this.panel2.TabIndex = 24;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
+            this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(47)))), ((int)(((byte)(48)))));
+            this.PN_Top.Controls.Add(this.label1);
+            this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PN_Top.ForeColor = System.Drawing.Color.White;
+            this.PN_Top.Location = new System.Drawing.Point(0, 0);
+            this.PN_Top.Name = "PN_Top";
+            this.PN_Top.Size = new System.Drawing.Size(475, 26);
+            this.PN_Top.TabIndex = 24;
             // 
             // label1
             // 
@@ -192,30 +181,30 @@ partial class frmMessage
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1440, 860);
             this.Name = "frmMessage";
             this.Padding = new System.Windows.Forms.Padding(1);
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Message";
-            this.Activated += new System.EventHandler(this.frmMessage_Activated);
-            this.Deactivate += new System.EventHandler(this.frmMessage_Deactivate);
             this.panel1.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.PN_Top.ResumeLayout(false);
+            this.PN_Top.PerformLayout();
             this.ResumeLayout(false);
 
-    }
+        }
 
-    #endregion
-    private System.Windows.Forms.Button acceptBtn;
-    private System.Windows.Forms.Button ok;
-    private System.Windows.Forms.Panel panel1;
-    private FlatButton acepctBtn;
-    private FlatButton cancelBtn;
-    private System.Windows.Forms.Panel panel15;
-    private System.Windows.Forms.Button Cancel;
-    private FlatTextBox2 txtMessage;
-    private System.Windows.Forms.Panel panel2;
-    private System.Windows.Forms.Label label1;
+        #endregion
+        private System.Windows.Forms.Button acceptBtn;
+        private System.Windows.Forms.Button ok;
+        private System.Windows.Forms.Panel panel1;
+        private SKYNET_Button acepctBtn;
+        private SKYNET_Button cancelBtn;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Button Cancel;
+        private SKYNET_TextBox txtMessage;
+        private System.Windows.Forms.Panel PN_Top;
+        private System.Windows.Forms.Label label1;
+    }
 }

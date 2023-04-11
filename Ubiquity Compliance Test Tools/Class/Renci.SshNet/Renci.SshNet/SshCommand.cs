@@ -3,7 +3,7 @@ using Renci.SshNet.Common;
 using Renci.SshNet.Messages;
 using Renci.SshNet.Messages.Connection;
 using Renci.SshNet.Messages.Transport;
-using SKYNET;
+using SKYNET.GUI;
 using System;
 using System.Globalization;
 using System.IO;
@@ -326,7 +326,7 @@ namespace Renci.SshNet
 			switch (WaitHandle.WaitAny(waitHandles, CommandTimeout))
 			{
 			case 0:
-                    frmMain.frm.Write("An established connection was aborted by the server", SKYNET.LOG.MessageType.WARN);
+                    frmMain.frm.Write("An established connection was aborted by the server", MessageType.WARN);
                     throw new SshOperationTimeoutException(string.Format(CultureInfo.CurrentCulture, "An established connection was aborted by the server", new object[1]
                     {
                         ""

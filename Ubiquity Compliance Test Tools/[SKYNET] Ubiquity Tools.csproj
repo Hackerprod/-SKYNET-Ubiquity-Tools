@@ -57,100 +57,54 @@
     <Compile Include="GUI\Controls\BoxTool.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Class\DeviceClient.cs" />
-    <Compile Include="Class\DeviceFile.cs" />
-    <Compile Include="Class\DeviceSignal.cs" />
+    <Compile Include="GUI\Controls\SKYNET_Box.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\SKYNET_Box.designer.cs">
+      <DependentUpon>SKYNET_Box.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\SKYNET_Button.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\SKYNET_ComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\SKYNET_ContextMenuStrip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\SKYNET_TextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Controls\SKYNET_TextBox.designer.cs">
+      <DependentUpon>SKYNET_TextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Controls\SKYNET_TrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\frmBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmBase.designer.cs">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DeviceClient.cs" />
+    <Compile Include="Models\DeviceFile.cs" />
+    <Compile Include="Models\DeviceSignal.cs" />
     <Compile Include="Class\Discovery\Device.cs" />
     <Compile Include="Class\Discovery\DeviceAddress.cs" />
     <Compile Include="Class\Discovery\DeviceDiscovery.cs" />
     <Compile Include="Class\Discovery\DiscoveryPacket.cs" />
     <Compile Include="Class\Discovery\Utils.cs" />
     <Compile Include="Class\Registry.cs" />
-    <Compile Include="Class\Common.cs" />
-    <Compile Include="GUI\Controls\FLAT\ColorSystem.cs" />
-    <Compile Include="GUI\Controls\FLAT\FlatAlertBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatCheckBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatClose.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatColorPalette.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatComboBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatContextMenuStrip.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatGroupBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatListBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatMax.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatMini.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatNumeric.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatPanel.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatProgressBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\flatRadioButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatStatusBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatStickyButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatTabControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatTextBox2.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatToggle.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatTrackBar.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\FlatTreeView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\Controls\FLAT\Helpers.cs" />
-    <Compile Include="GUI\Controls\FLAT\MouseState.cs" />
+    <Compile Include="Class\CT_Method.cs" />
     <Compile Include="GUI\Controls\HackTrackB.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="GUI\Controls\HackTrackBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Class\css.cs" />
-    <Compile Include="Class\Device.cs" />
-    <Compile Include="Class\DeviceDiscovered.cs" />
+    <Compile Include="Models\Device.cs" />
+    <Compile Include="Models\DeviceDiscovered.cs" />
     <Compile Include="GUI\Controls\LoginBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -212,11 +166,8 @@
     <Compile Include="GUI\frmMessage.designer.cs">
       <DependentUpon>frmMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\HtmlHelper.cs" />
-    <Compile Include="Class\ILog.cs" />
     <Compile Include="Class\NetManager.cs" />
-    <Compile Include="Class\Paths.cs" />
-    <Compile Include="modCommon.cs" />
+    <Compile Include="Class\Common.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Class\Renci.SshNet\Renci.SshNet.Channels\Channel.cs" />
@@ -481,6 +432,15 @@
     <EmbeddedResource Include="GUI\Controls\Devices.resx">
       <DependentUpon>Devices.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\SKYNET_Box.resx">
+      <DependentUpon>SKYNET_Box.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Controls\SKYNET_TextBox.resx">
+      <DependentUpon>SKYNET_TextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmBase.resx">
+      <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\frmDevice.resx">
       <DependentUpon>frmDevice.cs</DependentUpon>
     </EmbeddedResource>
@@ -536,6 +496,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="pngocean.com.ico" />
+    <None Include="Resources\close.png" />
     <None Include="Resources\key_2_60px.png" />
     <None Include="Resources\networking_manager_100px.png" />
     <None Include="Resources\male_user_100px.png" />

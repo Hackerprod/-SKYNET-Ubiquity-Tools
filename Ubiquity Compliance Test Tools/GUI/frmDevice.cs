@@ -4,45 +4,33 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Text;
-using System.Runtime.InteropServices;
-using SKYNET.LOG;
 using System.Timers;
 using Renci.SshNet;
-using UbntDiscovery;
 using System.Web.Script.Serialization;
+using SKYNET.Models;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
-    [ComVisibleAttribute(true)]
-    public partial class frmDevice : Form
+    public partial class frmDevice : frmBase
     {
-        private bool mouseDown;     //Mover ventana
-        private Point lastLocation; //Mover ventana
-        private readonly Dictionary<string, string> UsersAndIds = new Dictionary<string, string>();
         public static frmDevice frm;
-        private static ILog ilog_0;
-        public StringBuilder HtmlString;
         public bool Searching;
+        public StringBuilder HtmlString;
+
         private SshCommand sshCommand;
-        private int deviceDiscovereds;
-        private int y = 7;
-
-        public DeviceDiscovery DeviceDiscovery { get; private set; }
-
-
-        List<ListViewItem> Frecuencys;
-        private readonly System.Timers.Timer _timer = new System.Timers.Timer();
+        private List<ListViewItem> Frecuencys;
+        private System.Timers.Timer _timer;
 
         public frmDevice(List<ListViewItem> frecuencys)
         {
             InitializeComponent();
             frm = this;
             Frecuencys = frecuencys;
+            SetMouseMove(PN_Top);
 
             CheckForIllegalCrossThreadCalls = false;
 
-            ilog_0 = new ILog();
-            //deviceDiscovereds = new List<DeviceDiscovered>();
+            _timer = new System.Timers.Timer();
 
             DeviceSignal BestSignal = new DeviceSignal() { Channel = "0", Average = -200 };
 
@@ -58,8 +46,8 @@ namespace SKYNET
 
             //SetBestSignal(BestSignal.Channel);
             label1.Text = "Best signal, channel  " + BestSignal.Channel + ", signal " + BestSignal.Average + " dbm";
-
         }
+
         public frmDevice()
         {
             InitializeComponent();
@@ -71,6 +59,7 @@ namespace SKYNET
             Chann.Width = 0;
             InitTimer();
         }
+
         private void InitTimer()
         {
             _timer.AutoReset = false;
@@ -79,15 +68,16 @@ namespace SKYNET
             _timer.Interval = (double)1000;
             _timer.Start();
         }
+
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
 
-            if (!modCommon.sshClient.IsConnected)
+            if (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
 
-            sshCommand = modCommon.sshClient.RunCommand("wstalist");
+            sshCommand = Common.sshClient.RunCommand("wstalist");
 
             string Result = sshCommand.Result;
 
@@ -117,6 +107,7 @@ namespace SKYNET
             _timer.Interval = (double)1000;
             _timer.Start();
         }
+
         private void AddClient(DeviceClient device, string channel)
         {
             try
@@ -209,79 +200,11 @@ namespace SKYNET
             catch (Exception)
             {
             }
-
-            //30, 31, 34
         }
-
-        private void closeBox_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void Control_MouseMove(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                Control control = (Control)sender;
-                if (control is PictureBox)
-                {
-                    switch (control.Name)
-                    {
-                        case "ClosePic": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-                if (control is Panel)
-                {
-                    switch (control.Name)
-                    {
-                        case "CloseBox": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-            }   catch { }
-        }
-
-        private void Control_MouseLeave(object sender, EventArgs e)
-        {
-            CloseBox.BackColor = Color.FromArgb(43, 54, 68);
-        }
-
-        private void Event_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                Location = new Point((Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
-                Update();
-                Opacity = 0.93;
-            }
-        }
-
-        private void Event_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-
-        }
-
-        private void Event_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-            Opacity = 100;
-        }
-
-        private void TittleLbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void FrmDiscovery_Deactivate(object sender, EventArgs e)
         {
             //Close();
-        }
-
-        private void FrmConnection_FormClosing(object sender, FormClosingEventArgs e)
-        {
         }
 
         private void _lvAliveHosts_MouseClick(object sender, MouseEventArgs e)
@@ -296,7 +219,6 @@ namespace SKYNET
                 devices1.Visible = true;
             }
             catch { }
-
         }
 
         private void SetLocation()
@@ -324,19 +246,6 @@ namespace SKYNET
             return Items;
         }
 
-        private void Devices1_MouseHover(object sender, EventArgs e)
-        {
-        }
-
-        private void Devices1_MouseLeave(object sender, EventArgs e)
-        {
-            devices1.Visible = false;
-        }
-
-        private void Devices1_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
         protected override void OnActivated(EventArgs e)
         {
             base.OnActivated(e);
@@ -350,8 +259,6 @@ namespace SKYNET
             mARGINS.cyTopHeight = 0;
             DwmApi.MARGINS marInset = mARGINS;
             DwmApi.DwmExtendFrameIntoClientArea(base.Handle, ref marInset);
-
         }
-
     }
 }

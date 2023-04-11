@@ -3,44 +3,30 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using mshtml;
-using Microsoft.VisualBasic.CompilerServices;
 using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
-using System.IO;
-using System.Net;
-using System.Net.Sockets;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-using System.Drawing.Imaging;
 using System.Threading;
-using SKYNET.Server;
-using SKYNET.LOG;
-using System.Timers;
 using Microsoft.VisualBasic;
 using Renci.SshNet;
 using System.Net.NetworkInformation;
 using UbntDiscovery;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
     [ComVisibleAttribute(true)]
-    public partial class frmMain : Form
+    public partial class frmMain : frmBase
     {
-        private bool mouseDown;     //Mover ventana
-        private Point lastLocation; //Mover ventana
-        private readonly Dictionary<string, string> UsersAndIds = new Dictionary<string, string>();
         public static frmMain frm;
-        private static ILog ilog_0;
-
-        public DeviceDiscovery DeviceDiscovery { get; }
-        RegistrySettings settings;
-        public StringBuilder HtmlString;
+        public static CT_Method CT_Method;
         public bool Searching;
+        public DeviceDiscovery DeviceDiscovery;
+        public StringBuilder HtmlString;
+
+        private RegistrySettings settings;
         private bool connected;
+        private readonly Dictionary<string, string> UsersAndIds = new Dictionary<string, string>();
 
         public bool Connected
         {
@@ -56,13 +42,13 @@ namespace SKYNET
                     if (!pingWorker.IsBusy)
                         pingWorker.RunWorkerAsync();
 
-                    modCommon.SetVisibleControl(PingLabel, true);
-                    modCommon.SetVisibleControl(lblping, true);
-                    modCommon.SetVisibleControl(AdminDevice, true);
+                    Common.SetVisibleControl(PingLabel, true);
+                    Common.SetVisibleControl(lblping, true);
+                    Common.SetVisibleControl(AdminDevice, true);
 
                     if (CountryLabel.Text != "COMPLIANCE TEST")
                     {
-                        modCommon.SetVisibleControl(ActivateCT, true);
+                        Common.SetVisibleControl(ActivateCT, true);
                     }
 
 
@@ -99,9 +85,8 @@ namespace SKYNET
             InitializeComponent();
             frm = this;
             CheckForIllegalCrossThreadCalls = false;
+            SetMouseMove(PN_Top);
 
-            //Initialize class
-            ilog_0 = new ILog();
             RegistrySettings.Initialice();
         }
 
@@ -124,64 +109,6 @@ namespace SKYNET
         {
             RegistrySettings.SaveSettings();
             Process.GetCurrentProcess().Kill();
-        }
-
-        private void Control_MouseMove(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                Control control = (Control)sender;
-                if (control is PictureBox)
-                {
-                    switch (control.Name)
-                    {
-                        case "ClosePic": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                        case "MinPic": MinBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-                if (control is Panel)
-                {
-                    switch (control.Name)
-                    {
-                        case "CloseBox": CloseBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                        case "MinBox": MinBox.BackColor = Color.FromArgb(53, 64, 78); break;
-                    }
-                }
-            }   catch { }
-        }
-
-        private void Control_MouseLeave(object sender, EventArgs e)
-        {
-            MinBox.BackColor = Color.FromArgb(43, 54, 68);
-            CloseBox.BackColor = Color.FromArgb(43, 54, 68);
-        }
-
-        private void Event_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                Location = new Point((Location.X - lastLocation.X) + e.X, (Location.Y - lastLocation.Y) + e.Y);
-                Update();
-                Opacity = 0.93;
-            }
-        }
-
-        private void Event_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-
-        }
-
-        private void Event_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-            Opacity = 100;
-        }
-
-        private void Minimize_click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
 
         internal void Write(object mess, MessageType mtype = MessageType.INFO)
@@ -227,160 +154,11 @@ namespace SKYNET
             //rtbLogs.ScrollToCaret();
         }
 
-        private void TittleLbl_Click(object sender, EventArgs e)
-        {
-            if (modCommon.Hackerprod)
-            {
-                List<string> Users = new List<string>()
-                {
-                    "ubnt",
-                    "Sluis",
-                    "UBNT",
-                    "Ubnt",
-                    "SKYNET",
-                    "skynet",
-                    "Skynet",
-                    "Hackerprod",
-                    "hackerprod"
-                };
-                List<string> Passwords = new List<string>()
-                {
-                    "dlh8904",
-                    "dlh8904*",
-                    "dlh890415",
-                    "dlh890415*",
-                    "loops8904",
-                    "loops8904*",
-                    "loops890415",
-                    "loops890415*",
-                    "dlh89041515140",
-                    "admin456*",
-                    "Admin456*",
-
-                    "123",
-                    "1234",
-                    "12345",
-                    "123456",
-                    "123457",
-                    "1234578",
-                    "12345789",
-                    "123457890",
-                    "123*",
-                    "1234*",
-                    "12345*",
-                    "123456*",
-                    "123457*",
-                    "1234578*",
-                    "12345789*",
-                    "123457890*",
-
-
-                    "Dlh8904",
-                    "Dlh8904*",
-                    "Dlh890415",
-                    "Dlh890415*",
-                    "Loops8904",
-                    "Loops8904*",
-                    "Loops890415",
-                    "Loops890415*",
-
-                    "skynet123",
-                    "Skynet123",
-                    "skynet123*",
-                    "Skynet123*",
-                    "skynet8904",
-                    "Skynet8904*",
-                    "skynet890415",
-                    "Skynet890415",
-                    "skynet890415*",
-                    "Skynet890415*",
-
-                };
-                foreach (var User_Current in Users)
-                {
-                    foreach (var Password_Current in Passwords)
-                    {
-                        Write("Connecting with user: " + User_Current + ", password: " + Password_Current, MessageType.WARN);
-                        if (IniciarSession_Test(User_Current, Password_Current))
-                        {
-                            modCommon.Show("Connected with user: " + User_Current + ", password: " + Password_Current);
-                        }
-                    }
-                }
-                
-
-                
-
-
-
-                return;
-                SshCommand sshCommand = modCommon.sshClient.RunCommand("save");
-                string command = "";
-                //sshCommand = modCommon.sshClient.RunCommand("cd /etc/persistent && touch rc.poststart && chmod +x rc.poststart");
-
-                //Remove old file
-                sshCommand = modCommon.sshClient.RunCommand("rm /etc/persistent");
-
-                //Create new
-                sshCommand = modCommon.sshClient.RunCommand("cd /etc/persistent && touch rc.poststart && chmod +x rc.poststart");
-
-                //Edit new file
-                command += "sed -i 'A#!/bin/sh' /etc/persistent/rc.poststart && ";
-                /*command += "sed -i 'Ainsmod ubnt_spectral' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Aiwpriv wifi0 setCountry UB' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Aifconfig ath0 down' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Aifconfig wifi0 down' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Asleep 5' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Armmod ubnt_spectral' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Aifconfig ath0 up' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Aifconfig wifi0 up' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Aecho \"countrycode = 511\" > /var/etc/atheros.conf' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'A' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'A' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Ased -i 's/840/511/g' /tmp/system.cfg' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Aecho \"<option value=\"511\" > Compliance Test</option>\" >> /var/etc/ccodes.inc' /etc/persistent/rc.poststart && ";
-                command += "sed -i 'Asleep 5' /etc/persistent/rc.poststart";
-                */
-                command +=   "cfgmtd -f -w && save";
-                
-                sshCommand = modCommon.sshClient.RunCommand(command);
-
-                sshCommand = modCommon.sshClient.RunCommand("cat /etc/persistent/rc.poststart");
-
-                Write(sshCommand.Result);
-                
-
-                //sshCommand = modCommon.sshClient.RunCommand("cd /etc/persistent && touch rc.poststart && chmod +x rc.poststart");
-                //sshCommand = modCommon.sshClient.RunCommand("touch /etc/persistent/rc.poststart && sed -i '#!/bin/sh' /etc/persistent/rc.poststart && sed -i 'insmod ubnt_spectral' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                /*
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'iwpriv wifi0 setCountry UB' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'ifconfig ath0 down' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'ifconfig wifi0 down' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'sleep 5' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'rmmod ubnt_spectral' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'ifconfig ath0 up' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'ifconfig wifi0 up' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'echo \"countrycode=511\" > /var/etc/atheros.conf' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 's/840/511/g /tmp/system.cfg' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'echo \"<option value=\"511\">Compliance Test</option>\" >> /var/etc/ccodes.inc' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                sshCommand = modCommon.sshClient.RunCommand("sed -i 'sleep 5' /etc/persistent/rc.poststart && cfgmtd -f /etc/persistent/rc.poststart -w && save");
-                */
-
-
-                
-
-
-
-
-            }
-
-        }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
-            ilog_0.Info("Connect to the device to get started");
+            Write("Connect to the device to get started");
             Connected = false;
-            Common.Metodo = Common.Method.Method_1;
+            CT_Method = CT_Method.International;
 
             RegistrySettings.LoadSettings();
 
@@ -401,144 +179,6 @@ namespace SKYNET
                 Connected = false;
             }
         }
-        private bool IniciarSession_Test(string user, string password)
-        {
-            string Label1 = "";
-
-            this.Disconnect();
-            Write("Connecting to " + serverip.Text);
-            PasswordConnectionInfo connectionInfo = new PasswordConnectionInfo(serverip.Text, 22, user, password);
-            modCommon.sshClient = new SshClient(connectionInfo);
-            modCommon.sshClient.ErrorOccurred += SshClient_ErrorOccurred;
-            try
-            {
-                modCommon.sshClient.ConnectionInfo.Timeout = TimeSpan.FromSeconds(10.0);
-                modCommon.sshClient.ConnectionInfo.RetryAttempts = 3;
-                modCommon.sshClient.Connect();
-
-            }
-            catch (Exception ex)
-            {
-                this.StatusLabel.Text = "ERROR!";
-                this.StatusLabel.ForeColor = Color.Red;
-            }
-            try
-            {
-                if (modCommon.sshClient.IsConnected)
-                {
-                    modCommon.device = new Device();
-                    modCommon.device.Server = serverip.Text;
-                    modCommon.device.Username = user;
-                    modCommon.device.Password = password;
-
-                    SshCommand sshCommand = modCommon.sshClient.RunCommand("cat /etc/version");
-                    string result = sshCommand.Result;
-                    if (result.Contains("-cs"))
-                        try { result = result.Split('-')[0] + "-cs"; } catch { }
-
-                    this.FirmwareLabel.Text = result;
-                    sshCommand = modCommon.sshClient.RunCommand("cat /etc/board.info | grep board.name=");
-                    Label1 = sshCommand.Result;
-                    string text = Strings.Replace(Label1, "board.name=", "", 1, -1, CompareMethod.Binary);
-                    this.DeviceLabel.Text = text;
-
-                    sshCommand = modCommon.sshClient.RunCommand("cat /tmp/system.cfg | grep radio.countrycode=");
-                    Label1 = sshCommand.Result;
-                    string left = Strings.Replace(Label1, "radio.countrycode=", "", 1, -1, CompareMethod.Binary).Trim();
-
-                    //sshCommand = sshClient.RunCommand("iwconfig ath0 txpower 20");
-
-                    string pais = modCommon.GetCountry(left);
-                    CountryLabel.Text = pais;
-                    modCommon.SetVisibleControl(AdminDevice, true);
-
-                    //////////////////////////////////////////////////////////////
-                    {
-                        //Obtener lista de canales
-                        sshCommand = modCommon.sshClient.RunCommand("iwlist channel");
-                        string channellist = sshCommand.Result;
-                        TextBox box = new TextBox() { Multiline = true };
-                        box.Text = channellist;
-                        modCommon.device.ChannelList.Clear();
-                        for (int i = 0; i < box.Lines.Count(); i++)
-                        {
-                            if (box.Lines[i].Contains(" Channel "))
-                            {
-                                modCommon.device.ChannelList.Add(box.Lines[i].Remove(0, 7));
-
-                            }
-                            if (box.Lines[i].Contains("Current Frequency:"))
-                            {
-                                string[] part = box.Lines[i].Split(' ');
-                                for (int p = 0; p < part.Length; p++)
-                                {
-                                    if (part[p].Contains(")"))
-                                    {
-                                        modCommon.device.Channel = part[p].Replace(")", "");
-                                    }
-                                }
-
-                            }
-                        }
-                    }
-                    //Ports
-                    {
-                        sshCommand = modCommon.sshClient.RunCommand("grep 'httpd.https.port=' /tmp/system.cfg");
-                        string https = sshCommand.Result;
-                        modCommon.device.HttpsPort = https.Replace("httpd.https.port=", "");
-
-                    }
-                    {
-                        //Obtener potencia del equipo
-                        sshCommand = modCommon.sshClient.RunCommand("iwlist ath0 txpower");
-                        string powerlist = sshCommand.Result;
-                        TextBox box = new TextBox() { Multiline = true };
-                        box.Text = powerlist;
-                        List<string> dbm = new List<string>();
-                        string Max = "";
-                        for (int i = 0; i < box.Lines.Count(); i++)
-                            if (box.Lines[i].Contains("dBm")) dbm.Add(box.Lines[i].ToString());
-
-                        //Potencia maxima
-                        if (dbm.Count > 2)
-                        {
-                            Max = dbm[dbm.Count - 2];
-                            string[] part = Max.Split(' ');
-                            Max = part[2];
-                        }
-                        modCommon.device.MaxPower = Max;
-
-
-                        //Potencia actual
-                        string power = "";
-                        if (dbm.Count > 2)
-                        {
-                            power = dbm[dbm.Count - 1];
-                            string[] part = power.Split(' ');
-                            for (int i = 0; i < part.Length; i++)
-                            {
-                                if (part[i].Contains("="))
-                                {
-                                    power = part[i].Replace("Tx-Power=", "");
-                                }
-                            }
-                        }
-                        modCommon.device.Power = power;
-                    }
-                    Connected = true;
-                    return true;
-                }
-                else
-                {
-                    Connected = false;
-                    return false;
-                }
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
 
         private void IniciarSession_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -547,13 +187,13 @@ namespace SKYNET
             this.Disconnect();
             Write("Connecting to " + serverip.Text);
             PasswordConnectionInfo connectionInfo = new PasswordConnectionInfo(serverip.Text, 22, username.Text, password.Text);
-            modCommon.sshClient = new SshClient(connectionInfo);
-            modCommon.sshClient.ErrorOccurred += SshClient_ErrorOccurred;
+            Common.sshClient = new SshClient(connectionInfo);
+            Common.sshClient.ErrorOccurred += SshClient_ErrorOccurred;
             try
             {
-                modCommon.sshClient.ConnectionInfo.Timeout = TimeSpan.FromSeconds(10.0);
-                modCommon.sshClient.ConnectionInfo.RetryAttempts = 3;
-                modCommon.sshClient.Connect();
+                Common.sshClient.ConnectionInfo.Timeout = TimeSpan.FromSeconds(10.0);
+                Common.sshClient.ConnectionInfo.RetryAttempts = 3;
+                Common.sshClient.Connect();
             }
             catch (Exception ex)
             {
@@ -562,45 +202,47 @@ namespace SKYNET
             }
             try
             {
-                if (modCommon.sshClient.IsConnected)
+                if (Common.sshClient.IsConnected)
                 {
-                    modCommon.device = new Device();
-                    modCommon.device.Server = serverip.Text;
-                    modCommon.device.Username = username.Text;
-                    modCommon.device.Password = password.Text;
+                    Common.device = new Models.Device()
+                    {
+                        Server = serverip.Text,
+                        Username = username.Text,
+                        Password = password.Text
+                    };
 
-                    SshCommand sshCommand = modCommon.sshClient.RunCommand("cat /etc/version");
+                    SshCommand sshCommand = Common.sshClient.RunCommand("cat /etc/version");
                     string result = sshCommand.Result;
                     if (result.Contains("-cs"))
                         try { result = result.Split('-')[0] + "-cs"; } catch { }
 
                     this.FirmwareLabel.Text = result;
-                    sshCommand = modCommon.sshClient.RunCommand("cat /etc/board.info | grep board.name=");
+                    sshCommand = Common.sshClient.RunCommand("cat /etc/board.info | grep board.name=");
                     Label1 = sshCommand.Result;
                     string text = Strings.Replace(Label1, "board.name=", "", 1, -1, CompareMethod.Binary);
                     this.DeviceLabel.Text = text;
 
-                    sshCommand = modCommon.sshClient.RunCommand("cat /tmp/system.cfg | grep radio.countrycode=");
+                    sshCommand = Common.sshClient.RunCommand("cat /tmp/system.cfg | grep radio.countrycode=");
                     Label1 = sshCommand.Result;
                     string left = Strings.Replace(Label1, "radio.countrycode=", "", 1, -1, CompareMethod.Binary).Trim();
 
-                    string country = modCommon.GetCountry(left);
+                    string country = Common.GetCountry(left);
                     CountryLabel.Text = country;
-                    modCommon.SetVisibleControl(AdminDevice, true);
+                    Common.SetVisibleControl(AdminDevice, true);
 
                     //////////////////////////////////////////////////////////////
                     {
                         //Obtener lista de canales
-                        sshCommand = modCommon.sshClient.RunCommand("iwlist channel");
+                        sshCommand = Common.sshClient.RunCommand("iwlist channel");
                         string channellist = sshCommand.Result;
                         TextBox box = new TextBox() { Multiline = true };
                         box.Text = channellist;
-                        modCommon.device.ChannelList.Clear();
+                        Common.device.ChannelList.Clear();
                         for (int i = 0; i < box.Lines.Count(); i++)
                         {
                             if (box.Lines[i].Contains(" Channel "))
                             {
-                                modCommon.device.ChannelList.Add(box.Lines[i].Remove(0, 7));
+                                Common.device.ChannelList.Add(box.Lines[i].Remove(0, 7));
 
                             }
                             if (box.Lines[i].Contains("Current Frequency:"))
@@ -610,7 +252,7 @@ namespace SKYNET
                                 {
                                     if (part[p].Contains(")"))
                                     {
-                                        modCommon.device.Channel = part[p].Replace(")", "");
+                                        Common.device.Channel = part[p].Replace(")", "");
                                     }
                                 }
 
@@ -619,14 +261,14 @@ namespace SKYNET
                     }
                     //Ports
                     {
-                        sshCommand = modCommon.sshClient.RunCommand("grep 'httpd.https.port=' /tmp/system.cfg");
+                        sshCommand = Common.sshClient.RunCommand("grep 'httpd.https.port=' /tmp/system.cfg");
                         string https = sshCommand.Result;
-                        modCommon.device.HttpsPort = https.Replace("httpd.https.port=", "");
+                        Common.device.HttpsPort = https.Replace("httpd.https.port=", "");
 
                     }
                     {
                         //Obtener potencia del equipo
-                        sshCommand = modCommon.sshClient.RunCommand("iwlist ath0 txpower");
+                        sshCommand = Common.sshClient.RunCommand("iwlist ath0 txpower");
                         string powerlist = sshCommand.Result;
                         TextBox box = new TextBox() { Multiline = true };
                         box.Text = powerlist;
@@ -642,7 +284,7 @@ namespace SKYNET
                             string[] part = Max.Split(' ');
                             Max = part[2];
                         }
-                        modCommon.device.MaxPower = Max;
+                        Common.device.MaxPower = Max;
 
 
                         //Potencia actual
@@ -659,7 +301,7 @@ namespace SKYNET
                                 }
                             }
                         }
-                        modCommon.device.Power = power;
+                        Common.device.Power = power;
                     }
                     Connected = true;
 
@@ -671,12 +313,12 @@ namespace SKYNET
             }
             catch (Exception)
             {
-                ilog_0.Error("An error occurred while establishing the connection");
+                Write("An error occurred while establishing the connection");
             }
 
-            while (!modCommon.sshClient.IsConnected)
+            while (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
             if (Connected)
                 Write("Established connection");
@@ -702,10 +344,10 @@ namespace SKYNET
             bool showMessage = false;
             if (this.Connected)
             {
-                if (modCommon.sshClient.IsConnected)
+                if (Common.sshClient.IsConnected)
                 {
-                    modCommon.sshClient.Disconnect();
-                    modCommon.sshClient.Dispose();
+                    Common.sshClient.Disconnect();
+                    Common.sshClient.Dispose();
                     showMessage = true;
                 }
             }
@@ -788,24 +430,22 @@ namespace SKYNET
                 return;
             }
 
-            while (!modCommon.sshClient.IsConnected)
+            while (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
 
             this.Write("Trying to activate the Compliance Test to the device", MessageType.INFO);
-            if (Common.Metodo == Common.Method.Method_1)
+
+            var script = Common.GetComplianceTestScript(CT_Method);
+
+            foreach (var line in script)
             {
-                SshCommand sshCommand = modCommon.sshClient.RunCommand(modCommon.GetCTCode_M1());
-            }
-            else if (Common.Metodo == Common.Method.Method_2)
-            {
-                SshCommand sshCommand = modCommon.sshClient.RunCommand(modCommon.GetCTCode_M2());
-                sshCommand = modCommon.sshClient.RunCommand(modCommon.GetActivateListChannelsCode());
-                sshCommand = modCommon.sshClient.RunCommand(modCommon.GetListChannelsCode());
-                sshCommand = modCommon.sshClient.RunCommand("save");
-                sshCommand = modCommon.sshClient.RunCommand("cfgmtd -wp /etc && reboot");
-                sshCommand = modCommon.sshClient.RunCommand("reboot");
+                SshCommand result = Common.sshClient.RunCommand(line);
+                if (!string.IsNullOrEmpty(result.Error))
+                {
+                    //Write($"Error in command {line} : {result.Error}");
+                }
             }
 
             //sshCommand = modCommon.sshClient.RunCommand(modCommon.GetChannelsCode());
@@ -818,38 +458,38 @@ namespace SKYNET
         {
             while (true)
             {
-                if (!modCommon.sshClient.IsConnected)
+                if (!Common.sshClient.IsConnected)
                 {
                     try
                     {
-                        modCommon.sshClient.Connect();
+                        Common.sshClient.Connect();
                     }
                     catch { }
                 }
                 try
                 {
-                    using (modCommon.sshClient)
+                    using (Common.sshClient)
                     {
-                        if (modCommon.sshClient.IsConnected)
+                        if (Common.sshClient.IsConnected)
                         {
                             string Label1 = "";
-                            SshCommand sshCommand = modCommon.sshClient.RunCommand("cat /tmp/system.cfg | grep radio.countrycode=");
+                            SshCommand sshCommand = Common.sshClient.RunCommand("cat /tmp/system.cfg | grep radio.countrycode=");
                             Label1 = sshCommand.Result;
                             string left = Strings.Replace(Label1, "radio.countrycode=", "", 1, -1, CompareMethod.Binary).Trim();
 
-                            string pais = modCommon.GetCountry(left);
+                            string pais = Common.GetCountry(left);
                             CountryLabel.Text = pais;
 
                             if (pais == "COMPLIANCE TEST")
                             {
                                 this.Write("Done ... Compliance Test activated.", MessageType.INFO);
 
-                                if (Common.Metodo == Common.Method.Method_2)
+                                if (CT_Method == CT_Method.USA)
                                 {
                                     this.Write("Restarting the device.", MessageType.WARN);
                                     Connected = false;
                                 }
-                                modCommon.SetVisibleControl(ActivateCT, false);
+                                Common.SetVisibleControl(ActivateCT, false);
                                 goto label_1;
                             }
                         }
@@ -904,44 +544,28 @@ namespace SKYNET
             serverip.Text = ipName;
         }
 
-        private void Descovery_Click(object sender, EventArgs e)
-        {
-            frmDiscovery discovery = new frmDiscovery();
-            discovery.ShowDialog();
-        }
-
-        private void Descovery_MouseMove(object sender, MouseEventArgs e)
-        {
-            Descovery.ForeColor = Color.FromArgb(225, 225, 225);
-        }
-
-        private void Descovery_MouseLeave(object sender, EventArgs e)
-        {
-            Descovery.ForeColor = Color.FromArgb(147, 157, 160);
-        }
-
         private void Label1_Click(object sender, EventArgs e)
         {
-            while (!modCommon.sshClient.IsConnected)
+            while (!Common.sshClient.IsConnected)
             {
-                modCommon.sshClient.Connect();
+                Common.sshClient.Connect();
             }
 
             this.Write("Testing", MessageType.INFO);
 
 
-            SshCommand sshCommand = modCommon.sshClient.RunCommand("sed -i '/radio.countrycode/c\\radio.countrycode=511' /tmp/system.cfg && sed -i '/radio.1.countrycode/c\\radio.1.countrycode=511' /tmp/system.cfg");
-            sshCommand = modCommon.sshClient.RunCommand("sed -i '/radio.countrycode/c\\radio.countrycode=511' /tmp/system.cfg && sed -i '/radio.1.countrycode/c\\radio.1.countrycode=511' /tmp/system.cfg");
+            SshCommand sshCommand = Common.sshClient.RunCommand("sed -i '/radio.countrycode/c\\radio.countrycode=511' /tmp/system.cfg && sed -i '/radio.1.countrycode/c\\radio.1.countrycode=511' /tmp/system.cfg");
+            sshCommand = Common.sshClient.RunCommand("sed -i '/radio.countrycode/c\\radio.countrycode=511' /tmp/system.cfg && sed -i '/radio.1.countrycode/c\\radio.1.countrycode=511' /tmp/system.cfg");
 
-            sshCommand = modCommon.sshClient.RunCommand("echo \"countrycode = 511\" > /var/etc/atheros.conf");
-            sshCommand = modCommon.sshClient.RunCommand("sed -i 's/840/511/g' /tmp/system.cfg");
-            sshCommand = modCommon.sshClient.RunCommand("<option value=\"511\"> Compliance Test</option>\" >> /var/etc/ccodes.inc");
-            sshCommand = modCommon.sshClient.RunCommand("cfgmtd -f /tmp/system.cfg -w");
-            sshCommand = modCommon.sshClient.RunCommand("cfgmtd -f /var/etc/ccodes.inc -w");
-            sshCommand = modCommon.sshClient.RunCommand("cfgmtd -f /var/etc/atheros.conf -w");
-            sshCommand = modCommon.sshClient.RunCommand("save");
+            sshCommand = Common.sshClient.RunCommand("echo \"countrycode = 511\" > /var/etc/atheros.conf");
+            sshCommand = Common.sshClient.RunCommand("sed -i 's/840/511/g' /tmp/system.cfg");
+            sshCommand = Common.sshClient.RunCommand("<option value=\"511\"> Compliance Test</option>\" >> /var/etc/ccodes.inc");
+            sshCommand = Common.sshClient.RunCommand("cfgmtd -f /tmp/system.cfg -w");
+            sshCommand = Common.sshClient.RunCommand("cfgmtd -f /var/etc/ccodes.inc -w");
+            sshCommand = Common.sshClient.RunCommand("cfgmtd -f /var/etc/atheros.conf -w");
+            sshCommand = Common.sshClient.RunCommand("save");
   
-            sshCommand = modCommon.sshClient.RunCommand("cat /tmp/system.cfg | grep countrycode");
+            sshCommand = Common.sshClient.RunCommand("cat /tmp/system.cfg | grep countrycode");
             this.Write(sshCommand.Result, MessageType.INFO);
         }
         protected override void OnActivated(EventArgs e)
@@ -960,5 +584,15 @@ namespace SKYNET
 
         }
 
+        private void SKYNET_Button1_Click(object sender, EventArgs e)
+        {
+            frmDiscovery discovery = new frmDiscovery();
+            discovery.ShowDialog();
+        }
+
+        private void FlatButton1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

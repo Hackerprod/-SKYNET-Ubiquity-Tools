@@ -1,9 +1,5 @@
 ﻿
-
-using SKYNET.Properties;
-using XNova_Utils.Others;
-
-namespace SKYNET
+namespace SKYNET.GUI
 {
     partial class frmMain
     {
@@ -35,11 +31,7 @@ namespace SKYNET
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.MinBox = new System.Windows.Forms.Panel();
-            this.MinPic = new System.Windows.Forms.PictureBox();
-            this.CloseBox = new System.Windows.Forms.Panel();
-            this.ClosePic = new System.Windows.Forms.PictureBox();
+            this.PN_Top = new System.Windows.Forms.Panel();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -62,109 +54,47 @@ namespace SKYNET
             this.lblping = new System.Windows.Forms.Label();
             this.PingLabel = new System.Windows.Forms.Label();
             this.pingWorker = new System.ComponentModel.BackgroundWorker();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.Descovery = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.CountryCodeWorker = new System.ComponentModel.BackgroundWorker();
-            this.password = new SKYNET.LoginBox();
-            this.username = new SKYNET.LoginBox();
-            this.serverip = new SKYNET.LoginBox();
-            this.AdminDevice = new FlatButton();
-            this.ActivateCT = new FlatButton();
-            this.connect = new FlatButton();
-            this.planetMenu = new FlatContextMenuStrip();
+            this.password = new SKYNET.GUI.Controls.SKYNET_TextBox();
+            this.username = new SKYNET.GUI.Controls.SKYNET_TextBox();
+            this.serverip = new SKYNET.GUI.Controls.SKYNET_TextBox();
+            this.AdminDevice = new SKYNET.GUI.Controls.SKYNET_Button();
+            this.ActivateCT = new SKYNET.GUI.Controls.SKYNET_Button();
+            this.connect = new SKYNET.GUI.Controls.SKYNET_Button();
+            this.planetMenu = new SKYNET.GUI.Controls.SKYNET_ContextMenuStrip();
             this.goGalaxy = new System.Windows.Forms.ToolStripMenuItem();
             this.atacarMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LaunchMisil = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1.SuspendLayout();
-            this.MinBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MinPic)).BeginInit();
-            this.CloseBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).BeginInit();
+            this.SKYNET_Button1 = new SKYNET.GUI.Controls.SKYNET_Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.skyneT_Box1 = new SKYNET.Controls.SKYNET_Box();
+            this.PN_Top.SuspendLayout();
             this.WebBrowserpnl.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.planetMenu.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // PN_Top
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.MinBox);
-            this.panel1.Controls.Add(this.CloseBox);
-            this.panel1.Controls.Add(this.tittleLbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(439, 26);
-            this.panel1.TabIndex = 5;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            // 
-            // MinBox
-            // 
-            this.MinBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.MinBox.Controls.Add(this.MinPic);
-            this.MinBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MinBox.Location = new System.Drawing.Point(371, 0);
-            this.MinBox.Name = "MinBox";
-            this.MinBox.Size = new System.Drawing.Size(34, 26);
-            this.MinBox.TabIndex = 12;
-            this.MinBox.Click += new System.EventHandler(this.Minimize_click);
-            this.MinBox.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.MinBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // MinPic
-            // 
-            this.MinPic.Image = global::SKYNET.Properties.Resources.min_new;
-            this.MinPic.Location = new System.Drawing.Point(11, 12);
-            this.MinPic.Name = "MinPic";
-            this.MinPic.Size = new System.Drawing.Size(13, 12);
-            this.MinPic.TabIndex = 4;
-            this.MinPic.TabStop = false;
-            this.MinPic.Click += new System.EventHandler(this.Minimize_click);
-            this.MinPic.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.MinPic.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // CloseBox
-            // 
-            this.CloseBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.CloseBox.Controls.Add(this.ClosePic);
-            this.CloseBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseBox.Location = new System.Drawing.Point(405, 0);
-            this.CloseBox.Name = "CloseBox";
-            this.CloseBox.Size = new System.Drawing.Size(34, 26);
-            this.CloseBox.TabIndex = 11;
-            this.CloseBox.Click += new System.EventHandler(this.closeBox_Click);
-            this.CloseBox.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.CloseBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // ClosePic
-            // 
-            this.ClosePic.Image = global::SKYNET.Properties.Resources.close11;
-            this.ClosePic.Location = new System.Drawing.Point(11, 7);
-            this.ClosePic.Name = "ClosePic";
-            this.ClosePic.Size = new System.Drawing.Size(13, 12);
-            this.ClosePic.TabIndex = 4;
-            this.ClosePic.TabStop = false;
-            this.ClosePic.Click += new System.EventHandler(this.closeBox_Click);
-            this.ClosePic.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.ClosePic.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
+            this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.PN_Top.Controls.Add(this.skyneT_Box1);
+            this.PN_Top.Controls.Add(this.tittleLbl);
+            this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PN_Top.ForeColor = System.Drawing.Color.White;
+            this.PN_Top.Location = new System.Drawing.Point(0, 0);
+            this.PN_Top.Name = "PN_Top";
+            this.PN_Top.Size = new System.Drawing.Size(439, 26);
+            this.PN_Top.TabIndex = 5;
             // 
             // tittleLbl
             // 
             this.tittleLbl.AutoSize = true;
-            this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tittleLbl.Font = new System.Drawing.Font("Segoe UI Emoji", 9F);
             this.tittleLbl.Location = new System.Drawing.Point(5, 4);
             this.tittleLbl.Name = "tittleLbl";
-            this.tittleLbl.Size = new System.Drawing.Size(99, 16);
+            this.tittleLbl.Size = new System.Drawing.Size(85, 16);
             this.tittleLbl.TabIndex = 7;
             this.tittleLbl.Text = "Ubiquity Tools";
-            this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
-            this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.tittleLbl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
             // 
             // acceptBtn
             // 
@@ -220,9 +150,6 @@ namespace SKYNET
             this.rtbLogs.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             this.rtbLogs.Enter += new System.EventHandler(this.RtbLogs_Enter);
             this.rtbLogs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RtbLogs_KeyDown);
-            this.rtbLogs.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.rtbLogs.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.rtbLogs.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
             // 
             // CTWorker
             // 
@@ -233,7 +160,7 @@ namespace SKYNET
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(9, 310);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 16);
@@ -244,7 +171,7 @@ namespace SKYNET
             // 
             this.sip.AutoSize = true;
             this.sip.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sip.ForeColor = System.Drawing.Color.Gainsboro;
+            this.sip.ForeColor = System.Drawing.Color.White;
             this.sip.Location = new System.Drawing.Point(9, 202);
             this.sip.Name = "sip";
             this.sip.Size = new System.Drawing.Size(53, 16);
@@ -255,7 +182,7 @@ namespace SKYNET
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(9, 255);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 16);
@@ -269,8 +196,8 @@ namespace SKYNET
             // StatusLabel
             // 
             this.StatusLabel.AutoSize = true;
-            this.StatusLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.StatusLabel.Location = new System.Drawing.Point(276, 283);
+            this.StatusLabel.ForeColor = System.Drawing.Color.White;
+            this.StatusLabel.Location = new System.Drawing.Point(106, 83);
             this.StatusLabel.Name = "StatusLabel";
             this.StatusLabel.Size = new System.Drawing.Size(83, 16);
             this.StatusLabel.TabIndex = 48;
@@ -279,8 +206,8 @@ namespace SKYNET
             // CountryLabel
             // 
             this.CountryLabel.AutoSize = true;
-            this.CountryLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CountryLabel.Location = new System.Drawing.Point(276, 261);
+            this.CountryLabel.ForeColor = System.Drawing.Color.White;
+            this.CountryLabel.Location = new System.Drawing.Point(106, 58);
             this.CountryLabel.Name = "CountryLabel";
             this.CountryLabel.Size = new System.Drawing.Size(83, 16);
             this.CountryLabel.TabIndex = 49;
@@ -289,8 +216,8 @@ namespace SKYNET
             // FirmwareLabel
             // 
             this.FirmwareLabel.AutoSize = true;
-            this.FirmwareLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.FirmwareLabel.Location = new System.Drawing.Point(276, 239);
+            this.FirmwareLabel.ForeColor = System.Drawing.Color.White;
+            this.FirmwareLabel.Location = new System.Drawing.Point(106, 33);
             this.FirmwareLabel.Name = "FirmwareLabel";
             this.FirmwareLabel.Size = new System.Drawing.Size(83, 16);
             this.FirmwareLabel.TabIndex = 51;
@@ -299,8 +226,8 @@ namespace SKYNET
             // DeviceLabel
             // 
             this.DeviceLabel.AutoSize = true;
-            this.DeviceLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.DeviceLabel.Location = new System.Drawing.Point(276, 217);
+            this.DeviceLabel.ForeColor = System.Drawing.Color.White;
+            this.DeviceLabel.Location = new System.Drawing.Point(106, 8);
             this.DeviceLabel.Name = "DeviceLabel";
             this.DeviceLabel.Size = new System.Drawing.Size(83, 16);
             this.DeviceLabel.TabIndex = 52;
@@ -310,8 +237,8 @@ namespace SKYNET
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(180, 217);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(10, 8);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 16);
             this.label4.TabIndex = 54;
@@ -321,8 +248,8 @@ namespace SKYNET
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(180, 239);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(10, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 16);
             this.label5.TabIndex = 56;
@@ -332,8 +259,8 @@ namespace SKYNET
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(180, 261);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(10, 58);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 58;
@@ -343,8 +270,8 @@ namespace SKYNET
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(180, 283);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(10, 83);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 16);
             this.label7.TabIndex = 59;
@@ -354,8 +281,8 @@ namespace SKYNET
             // 
             this.lblping.AutoSize = true;
             this.lblping.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblping.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblping.Location = new System.Drawing.Point(180, 305);
+            this.lblping.ForeColor = System.Drawing.Color.White;
+            this.lblping.Location = new System.Drawing.Point(10, 108);
             this.lblping.Name = "lblping";
             this.lblping.Size = new System.Drawing.Size(36, 16);
             this.lblping.TabIndex = 61;
@@ -364,8 +291,8 @@ namespace SKYNET
             // PingLabel
             // 
             this.PingLabel.AutoSize = true;
-            this.PingLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.PingLabel.Location = new System.Drawing.Point(276, 305);
+            this.PingLabel.ForeColor = System.Drawing.Color.White;
+            this.PingLabel.Location = new System.Drawing.Point(106, 108);
             this.PingLabel.Name = "PingLabel";
             this.PingLabel.Size = new System.Drawing.Size(83, 16);
             this.PingLabel.TabIndex = 62;
@@ -376,95 +303,63 @@ namespace SKYNET
             this.pingWorker.WorkerSupportsCancellation = true;
             this.pingWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.PingWorker_DoWork);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.panel2.Controls.Add(this.Descovery);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 416);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(439, 24);
-            this.panel2.TabIndex = 64;
-            // 
-            // Descovery
-            // 
-            this.Descovery.AutoSize = true;
-            this.Descovery.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Descovery.Location = new System.Drawing.Point(9, 2);
-            this.Descovery.Name = "Descovery";
-            this.Descovery.Size = new System.Drawing.Size(177, 16);
-            this.Descovery.TabIndex = 54;
-            this.Descovery.Text = "Discover devices in the network ";
-            this.Descovery.Click += new System.EventHandler(this.Descovery_Click);
-            this.Descovery.MouseLeave += new System.EventHandler(this.Descovery_MouseLeave);
-            this.Descovery.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Descovery_MouseMove);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(353, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 16);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "by Hackerprod";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
-            // 
             // CountryCodeWorker
             // 
             this.CountryCodeWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.CountryCodeWorker_DoWork);
             // 
             // password
             // 
-            this.password.ActivatedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.password.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.password.Control_BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.password.Control_BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.password.Empty_Text = "Fill all data";
-            this.password.ForeColor = System.Drawing.Color.Gainsboro;
+            this.password.ActivatedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.password.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.password.Color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.password.ForeColor = System.Drawing.Color.White;
             this.password.IsPassword = true;
-            this.password.Location = new System.Drawing.Point(12, 327);
+            this.password.Location = new System.Drawing.Point(12, 329);
             this.password.Logo = global::SKYNET.Properties.Resources.key_2_60px;
+            this.password.LogoCursor = System.Windows.Forms.Cursors.Default;
             this.password.Name = "password";
+            this.password.OnlyNumbers = false;
             this.password.Padding = new System.Windows.Forms.Padding(2);
             this.password.ShowLogo = true;
-            this.password.Size = new System.Drawing.Size(154, 37);
+            this.password.Size = new System.Drawing.Size(154, 30);
             this.password.TabIndex = 69;
+            this.password.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // username
             // 
-            this.username.ActivatedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.username.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.username.Control_BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.username.Control_BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.username.Empty_Text = "Fill all data";
-            this.username.ForeColor = System.Drawing.Color.Gainsboro;
+            this.username.ActivatedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.username.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.username.Color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.username.ForeColor = System.Drawing.Color.White;
             this.username.IsPassword = false;
-            this.username.Location = new System.Drawing.Point(12, 273);
+            this.username.Location = new System.Drawing.Point(12, 275);
             this.username.Logo = global::SKYNET.Properties.Resources.male_user_100px;
+            this.username.LogoCursor = System.Windows.Forms.Cursors.Default;
             this.username.Name = "username";
+            this.username.OnlyNumbers = false;
             this.username.Padding = new System.Windows.Forms.Padding(2);
             this.username.ShowLogo = true;
-            this.username.Size = new System.Drawing.Size(154, 37);
+            this.username.Size = new System.Drawing.Size(154, 30);
             this.username.TabIndex = 68;
+            this.username.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // serverip
             // 
-            this.serverip.ActivatedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.serverip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.serverip.Control_BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.serverip.Control_BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.serverip.Empty_Text = "Fill all data";
-            this.serverip.ForeColor = System.Drawing.Color.Gainsboro;
+            this.serverip.ActivatedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.serverip.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.serverip.Color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.serverip.ForeColor = System.Drawing.Color.White;
             this.serverip.IsPassword = false;
-            this.serverip.Location = new System.Drawing.Point(12, 218);
+            this.serverip.Location = new System.Drawing.Point(12, 220);
             this.serverip.Logo = global::SKYNET.Properties.Resources.networking_manager_100px;
+            this.serverip.LogoCursor = System.Windows.Forms.Cursors.Default;
             this.serverip.Name = "serverip";
+            this.serverip.OnlyNumbers = false;
             this.serverip.Padding = new System.Windows.Forms.Padding(2);
             this.serverip.ShowLogo = true;
-            this.serverip.Size = new System.Drawing.Size(154, 37);
+            this.serverip.Size = new System.Drawing.Size(154, 30);
             this.serverip.TabIndex = 67;
+            this.serverip.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
             // AdminDevice
             // 
@@ -472,15 +367,16 @@ namespace SKYNET
             this.AdminDevice.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
             this.AdminDevice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AdminDevice.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.AdminDevice.ForeColor = System.Drawing.Color.Gainsboro;
+            this.AdminDevice.ForeColor = System.Drawing.Color.White;
             this.AdminDevice.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.AdminDevice.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.AdminDevice.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.AdminDevice.ImageIcon = null;
-            this.AdminDevice.Location = new System.Drawing.Point(179, 373);
+            this.AdminDevice.Location = new System.Drawing.Point(179, 411);
+            this.AdminDevice.MenuMode = false;
             this.AdminDevice.Name = "AdminDevice";
             this.AdminDevice.Rounded = false;
             this.AdminDevice.Size = new System.Drawing.Size(248, 29);
-            this.AdminDevice.Style = FlatButton._Style.TextOnly;
+            this.AdminDevice.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.AdminDevice.TabIndex = 66;
             this.AdminDevice.Text = "MANAGE DEVICE";
             this.AdminDevice.Click += new System.EventHandler(this.AdminDevice_Click);
@@ -491,15 +387,16 @@ namespace SKYNET
             this.ActivateCT.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
             this.ActivateCT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ActivateCT.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.ActivateCT.ForeColor = System.Drawing.Color.Gainsboro;
+            this.ActivateCT.ForeColor = System.Drawing.Color.White;
             this.ActivateCT.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.ActivateCT.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.ActivateCT.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.ActivateCT.ImageIcon = null;
-            this.ActivateCT.Location = new System.Drawing.Point(179, 335);
+            this.ActivateCT.Location = new System.Drawing.Point(179, 373);
+            this.ActivateCT.MenuMode = false;
             this.ActivateCT.Name = "ActivateCT";
             this.ActivateCT.Rounded = false;
-            this.ActivateCT.Size = new System.Drawing.Size(248, 29);
-            this.ActivateCT.Style = FlatButton._Style.TextOnly;
+            this.ActivateCT.Size = new System.Drawing.Size(248, 30);
+            this.ActivateCT.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.ActivateCT.TabIndex = 29;
             this.ActivateCT.Text = "ACTIVATE COMPLIANCE TEST";
             this.ActivateCT.Click += new System.EventHandler(this.ActivateCT_Click);
@@ -510,15 +407,16 @@ namespace SKYNET
             this.connect.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
             this.connect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.connect.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.connect.ForeColor = System.Drawing.Color.Gainsboro;
+            this.connect.ForeColor = System.Drawing.Color.White;
             this.connect.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.connect.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.connect.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
             this.connect.ImageIcon = null;
             this.connect.Location = new System.Drawing.Point(12, 373);
+            this.connect.MenuMode = false;
             this.connect.Name = "connect";
             this.connect.Rounded = false;
             this.connect.Size = new System.Drawing.Size(154, 29);
-            this.connect.Style = FlatButton._Style.TextOnly;
+            this.connect.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
             this.connect.TabIndex = 28;
             this.connect.Text = "CONNECT";
             this.connect.Click += new System.EventHandler(this.Connect_Click);
@@ -553,26 +451,69 @@ namespace SKYNET
             this.LaunchMisil.Size = new System.Drawing.Size(119, 22);
             this.LaunchMisil.Text = "Lanzar misiles";
             // 
+            // SKYNET_Button1
+            // 
+            this.SKYNET_Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.SKYNET_Button1.BackColorMouseOver = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.SKYNET_Button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SKYNET_Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SKYNET_Button1.ForeColor = System.Drawing.Color.White;
+            this.SKYNET_Button1.ForeColorMouseOver = System.Drawing.Color.Empty;
+            this.SKYNET_Button1.ImageAlignment = SKYNET.GUI.Controls.SKYNET_Button._ImgAlign.Left;
+            this.SKYNET_Button1.ImageIcon = null;
+            this.SKYNET_Button1.Location = new System.Drawing.Point(12, 411);
+            this.SKYNET_Button1.MenuMode = false;
+            this.SKYNET_Button1.Name = "SKYNET_Button1";
+            this.SKYNET_Button1.Rounded = false;
+            this.SKYNET_Button1.Size = new System.Drawing.Size(154, 29);
+            this.SKYNET_Button1.Style = SKYNET.GUI.Controls.SKYNET_Button._Style.TextOnly;
+            this.SKYNET_Button1.TabIndex = 70;
+            this.SKYNET_Button1.Text = "DISCOVER DEVICES";
+            this.SKYNET_Button1.Click += new System.EventHandler(this.SKYNET_Button1_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(61)))), ((int)(((byte)(75)))));
+            this.panel2.Controls.Add(this.lblping);
+            this.panel2.Controls.Add(this.StatusLabel);
+            this.panel2.Controls.Add(this.CountryLabel);
+            this.panel2.Controls.Add(this.FirmwareLabel);
+            this.panel2.Controls.Add(this.DeviceLabel);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.PingLabel);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(179, 220);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(248, 139);
+            this.panel2.TabIndex = 71;
+            // 
+            // skyneT_Box1
+            // 
+            this.skyneT_Box1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.skyneT_Box1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.skyneT_Box1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(78)))));
+            this.skyneT_Box1.Image = null;
+            this.skyneT_Box1.ImageSize = 10;
+            this.skyneT_Box1.Location = new System.Drawing.Point(364, -3);
+            this.skyneT_Box1.MenuMode = false;
+            this.skyneT_Box1.MenuSeparation = 8;
+            this.skyneT_Box1.Name = "skyneT_Box1";
+            this.skyneT_Box1.Size = new System.Drawing.Size(34, 26);
+            this.skyneT_Box1.TabIndex = 8;
+            // 
             // frmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(39)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(439, 440);
+            this.ClientSize = new System.Drawing.Size(439, 455);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.SKYNET_Button1);
             this.Controls.Add(this.password);
             this.Controls.Add(this.username);
             this.Controls.Add(this.serverip);
             this.Controls.Add(this.AdminDevice);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.PingLabel);
-            this.Controls.Add(this.lblping);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.DeviceLabel);
-            this.Controls.Add(this.FirmwareLabel);
-            this.Controls.Add(this.CountryLabel);
-            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.sip);
             this.Controls.Add(this.label2);
@@ -581,51 +522,41 @@ namespace SKYNET
             this.Controls.Add(this.Browser);
             this.Controls.Add(this.acceptBtn);
             this.Controls.Add(this.WebBrowserpnl);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PN_Top);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1440, 860);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubiquity Tools";
             this.Activated += new System.EventHandler(this.FrmMain_Activated);
             this.Deactivate += new System.EventHandler(this.FrmMain_Deactivate);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.MinBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MinPic)).EndInit();
-            this.CloseBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).EndInit();
+            this.PN_Top.ResumeLayout(false);
+            this.PN_Top.PerformLayout();
             this.WebBrowserpnl.ResumeLayout(false);
+            this.planetMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.planetMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PN_Top;
         private System.Windows.Forms.Button acceptBtn;
         private System.Windows.Forms.WebBrowser Browser;
         private System.Windows.Forms.ImageList imageList1;
-        private FlatContextMenuStrip planetMenu;
+        private Controls.SKYNET_ContextMenuStrip planetMenu;
         private System.Windows.Forms.ToolStripMenuItem goGalaxy;
         private System.Windows.Forms.ToolStripMenuItem LaunchMisil;
         private System.Windows.Forms.ToolStripMenuItem atacarMenuItem;
-        private System.Windows.Forms.Panel CloseBox;
-        private System.Windows.Forms.PictureBox ClosePic;
         private System.Windows.Forms.Panel WebBrowserpnl;
-        private System.Windows.Forms.Panel MinBox;
-        private System.Windows.Forms.PictureBox MinPic;
-        private FlatButton connect;
-        private FlatButton ActivateCT;
+        private Controls.SKYNET_Button connect;
+        private Controls.SKYNET_Button ActivateCT;
         public System.Windows.Forms.Label tittleLbl;
         private System.ComponentModel.BackgroundWorker CTWorker;
         public System.Windows.Forms.Label label3;
@@ -640,17 +571,17 @@ namespace SKYNET
         private System.Windows.Forms.Label lblping;
         private System.Windows.Forms.Label PingLabel;
         private System.ComponentModel.BackgroundWorker pingWorker;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
         private System.ComponentModel.BackgroundWorker CountryCodeWorker;
-        private FlatButton AdminDevice;
+        private Controls.SKYNET_Button AdminDevice;
         public System.Windows.Forms.Label StatusLabel;
         public System.Windows.Forms.Label CountryLabel;
         public System.Windows.Forms.Label FirmwareLabel;
         public System.Windows.Forms.Label DeviceLabel;
-        private System.Windows.Forms.Label Descovery;
-        public LoginBox serverip;
-        public LoginBox username;
-        public LoginBox password;
+        public Controls.SKYNET_TextBox serverip;
+        public Controls.SKYNET_TextBox username;
+        public Controls.SKYNET_TextBox password;
+        private Controls.SKYNET_Button SKYNET_Button1;
+        private System.Windows.Forms.Panel panel2;
+        private SKYNET.Controls.SKYNET_Box skyneT_Box1;
     }
 }

@@ -1,8 +1,9 @@
 ﻿
 
+using SKYNET.GUI.Controls;
 using SKYNET.Properties;
 
-namespace SKYNET
+namespace SKYNET.GUI
 {
     partial class frmManager
     {
@@ -33,11 +34,7 @@ namespace SKYNET
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmManager));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.MinBox = new System.Windows.Forms.Panel();
-            this.MinPic = new System.Windows.Forms.PictureBox();
-            this.CloseBox = new System.Windows.Forms.Panel();
-            this.ClosePic = new System.Windows.Forms.PictureBox();
+            this.PN_Top = new System.Windows.Forms.Panel();
             this.tittleLbl = new System.Windows.Forms.Label();
             this.acceptBtn = new System.Windows.Forms.Button();
             this.Browser = new System.Windows.Forms.WebBrowser();
@@ -58,31 +55,27 @@ namespace SKYNET
             this.panel5 = new System.Windows.Forms.Panel();
             this.CurrentPower = new System.Windows.Forms.Label();
             this.PowerBar = new HackerProd.Controles.HackTrackBar();
-            this.SetPower = new FlatButton();
+            this.SetPower = new SKYNET_Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.ChannelList = new FlatComboBox();
-            this.SetChannel = new FlatButton();
+            this.ChannelList = new SKYNET_ComboBox();
+            this.SetChannel = new SKYNET_Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DeviceLogo = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.username = new SKYNET.LoginBox();
-            this.Cambiar = new FlatButton();
+            this.Cambiar = new SKYNET_Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.Stations = new FlatButton();
-            this.Buscar = new FlatButton();
+            this.Stations = new SKYNET_Button();
+            this.Buscar = new SKYNET_Button();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.addCT = new FlatButton();
-            this.RebootDevice = new FlatButton();
-            this.panel1.SuspendLayout();
-            this.MinBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MinPic)).BeginInit();
-            this.CloseBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).BeginInit();
+            this.addCT = new SKYNET_Button();
+            this.RebootDevice = new SKYNET_Button();
+            this.PN_Top.SuspendLayout();
             this.WebBrowserpnl.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -94,71 +87,16 @@ namespace SKYNET
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // PN_Top
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.MinBox);
-            this.panel1.Controls.Add(this.CloseBox);
-            this.panel1.Controls.Add(this.tittleLbl);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(618, 26);
-            this.panel1.TabIndex = 5;
-            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            // 
-            // MinBox
-            // 
-            this.MinBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.MinBox.Controls.Add(this.MinPic);
-            this.MinBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.MinBox.Location = new System.Drawing.Point(550, 0);
-            this.MinBox.Name = "MinBox";
-            this.MinBox.Size = new System.Drawing.Size(34, 26);
-            this.MinBox.TabIndex = 12;
-            this.MinBox.Click += new System.EventHandler(this.Minimize_click);
-            this.MinBox.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.MinBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // MinPic
-            // 
-            this.MinPic.Image = global::SKYNET.Properties.Resources.min_new;
-            this.MinPic.Location = new System.Drawing.Point(11, 12);
-            this.MinPic.Name = "MinPic";
-            this.MinPic.Size = new System.Drawing.Size(13, 12);
-            this.MinPic.TabIndex = 4;
-            this.MinPic.TabStop = false;
-            this.MinPic.Click += new System.EventHandler(this.Minimize_click);
-            this.MinPic.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.MinPic.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // CloseBox
-            // 
-            this.CloseBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
-            this.CloseBox.Controls.Add(this.ClosePic);
-            this.CloseBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CloseBox.Location = new System.Drawing.Point(584, 0);
-            this.CloseBox.Name = "CloseBox";
-            this.CloseBox.Size = new System.Drawing.Size(34, 26);
-            this.CloseBox.TabIndex = 11;
-            this.CloseBox.Click += new System.EventHandler(this.closeBox_Click);
-            this.CloseBox.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.CloseBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
-            // 
-            // ClosePic
-            // 
-            this.ClosePic.Image = global::SKYNET.Properties.Resources.close11;
-            this.ClosePic.Location = new System.Drawing.Point(11, 7);
-            this.ClosePic.Name = "ClosePic";
-            this.ClosePic.Size = new System.Drawing.Size(13, 12);
-            this.ClosePic.TabIndex = 4;
-            this.ClosePic.TabStop = false;
-            this.ClosePic.Click += new System.EventHandler(this.closeBox_Click);
-            this.ClosePic.MouseLeave += new System.EventHandler(this.Control_MouseLeave);
-            this.ClosePic.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Control_MouseMove);
+            this.PN_Top.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(54)))), ((int)(((byte)(68)))));
+            this.PN_Top.Controls.Add(this.tittleLbl);
+            this.PN_Top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PN_Top.ForeColor = System.Drawing.Color.White;
+            this.PN_Top.Location = new System.Drawing.Point(0, 0);
+            this.PN_Top.Name = "PN_Top";
+            this.PN_Top.Size = new System.Drawing.Size(618, 26);
+            this.PN_Top.TabIndex = 5;
             // 
             // tittleLbl
             // 
@@ -169,10 +107,6 @@ namespace SKYNET
             this.tittleLbl.Size = new System.Drawing.Size(154, 16);
             this.tittleLbl.TabIndex = 7;
             this.tittleLbl.Text = "Manage device settings";
-            this.tittleLbl.Click += new System.EventHandler(this.TittleLbl_Click);
-            this.tittleLbl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.tittleLbl.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.tittleLbl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
             // 
             // acceptBtn
             // 
@@ -218,9 +152,6 @@ namespace SKYNET
             this.rtbLogs.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             this.rtbLogs.Enter += new System.EventHandler(this.RtbLogs_Enter);
             this.rtbLogs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RtbLogs_KeyDown);
-            this.rtbLogs.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.rtbLogs.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.rtbLogs.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
             // 
             // StatusLabel
             // 
@@ -386,13 +317,13 @@ namespace SKYNET
             this.SetPower.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SetPower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.SetPower.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.SetPower.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.SetPower.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.SetPower.ImageIcon = null;
             this.SetPower.Location = new System.Drawing.Point(217, 29);
             this.SetPower.Name = "SetPower";
             this.SetPower.Rounded = false;
             this.SetPower.Size = new System.Drawing.Size(77, 24);
-            this.SetPower.Style = FlatButton._Style.TextOnly;
+            this.SetPower.Style = SKYNET_Button._Style.TextOnly;
             this.SetPower.TabIndex = 68;
             this.SetPower.Text = "Apply";
             this.SetPower.Click += new System.EventHandler(this.SetPower_Click);
@@ -452,13 +383,13 @@ namespace SKYNET
             this.SetChannel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SetChannel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.SetChannel.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.SetChannel.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.SetChannel.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.SetChannel.ImageIcon = null;
             this.SetChannel.Location = new System.Drawing.Point(217, 24);
             this.SetChannel.Name = "SetChannel";
             this.SetChannel.Rounded = false;
             this.SetChannel.Size = new System.Drawing.Size(77, 31);
-            this.SetChannel.Style = FlatButton._Style.TextOnly;
+            this.SetChannel.Style = SKYNET_Button._Style.TextOnly;
             this.SetChannel.TabIndex = 68;
             this.SetChannel.Text = "Apply";
             this.SetChannel.Click += new System.EventHandler(this.SetChannel_Click);
@@ -519,13 +450,13 @@ namespace SKYNET
             this.Cambiar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Cambiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.Cambiar.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Cambiar.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.Cambiar.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.Cambiar.ImageIcon = null;
             this.Cambiar.Location = new System.Drawing.Point(202, 25);
             this.Cambiar.Name = "Cambiar";
             this.Cambiar.Rounded = false;
             this.Cambiar.Size = new System.Drawing.Size(77, 30);
-            this.Cambiar.Style = FlatButton._Style.TextOnly;
+            this.Cambiar.Style = SKYNET_Button._Style.TextOnly;
             this.Cambiar.TabIndex = 68;
             this.Cambiar.Text = "Change";
             this.Cambiar.Click += new System.EventHandler(this.Cambiar_Click);
@@ -561,7 +492,6 @@ namespace SKYNET
             this.label8.Size = new System.Drawing.Size(231, 16);
             this.label8.TabIndex = 68;
             this.label8.Text = "STATION MANAGEMENT [AP ONLY]";
-            this.label8.Click += new System.EventHandler(this.Label8_Click);
             // 
             // panel6
             // 
@@ -582,13 +512,13 @@ namespace SKYNET
             this.Stations.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Stations.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.Stations.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Stations.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.Stations.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.Stations.ImageIcon = null;
             this.Stations.Location = new System.Drawing.Point(8, 29);
             this.Stations.Name = "Stations";
             this.Stations.Rounded = false;
             this.Stations.Size = new System.Drawing.Size(125, 24);
-            this.Stations.Style = FlatButton._Style.TextOnly;
+            this.Stations.Style = SKYNET_Button._Style.TextOnly;
             this.Stations.TabIndex = 70;
             this.Stations.Text = "Show links ";
             this.Stations.Click += new System.EventHandler(this.Stations_Click);
@@ -601,13 +531,13 @@ namespace SKYNET
             this.Buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Buscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.Buscar.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.Buscar.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.Buscar.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.Buscar.ImageIcon = null;
             this.Buscar.Location = new System.Drawing.Point(154, 29);
             this.Buscar.Name = "Buscar";
             this.Buscar.Rounded = false;
             this.Buscar.Size = new System.Drawing.Size(125, 24);
-            this.Buscar.Style = FlatButton._Style.TextOnly;
+            this.Buscar.Style = SKYNET_Button._Style.TextOnly;
             this.Buscar.TabIndex = 69;
             this.Buscar.Text = "Scan channels";
             this.Buscar.Click += new System.EventHandler(this.Buscar_Click);
@@ -640,13 +570,13 @@ namespace SKYNET
             this.addCT.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addCT.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.addCT.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.addCT.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.addCT.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.addCT.ImageIcon = null;
             this.addCT.Location = new System.Drawing.Point(12, 331);
             this.addCT.Name = "addCT";
             this.addCT.Rounded = false;
             this.addCT.Size = new System.Drawing.Size(176, 24);
-            this.addCT.Style = FlatButton._Style.TextOnly;
+            this.addCT.Style = SKYNET_Button._Style.TextOnly;
             this.addCT.TabIndex = 73;
             this.addCT.Text = "Add Compliance Test";
             this.addCT.Click += new System.EventHandler(this.AddCT_Click);
@@ -659,13 +589,13 @@ namespace SKYNET
             this.RebootDevice.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.RebootDevice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.RebootDevice.ForeColorMouseOver = System.Drawing.Color.Empty;
-            this.RebootDevice.ImageAlignment = FlatButton._ImgAlign.Left;
+            this.RebootDevice.ImageAlignment = SKYNET_Button._ImgAlign.Left;
             this.RebootDevice.ImageIcon = null;
             this.RebootDevice.Location = new System.Drawing.Point(451, 331);
             this.RebootDevice.Name = "RebootDevice";
             this.RebootDevice.Rounded = false;
             this.RebootDevice.Size = new System.Drawing.Size(159, 24);
-            this.RebootDevice.Style = FlatButton._Style.TextOnly;
+            this.RebootDevice.Style = SKYNET_Button._Style.TextOnly;
             this.RebootDevice.TabIndex = 72;
             this.RebootDevice.Text = "Restart device";
             this.RebootDevice.Click += new System.EventHandler(this.RebootDevice_Click);
@@ -686,25 +616,18 @@ namespace SKYNET
             this.Controls.Add(this.Browser);
             this.Controls.Add(this.acceptBtn);
             this.Controls.Add(this.WebBrowserpnl);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PN_Top);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximumSize = new System.Drawing.Size(1440, 860);
             this.Name = "frmManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ubiquity Compliance Test Tool";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmManager_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
-            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Event_MouseDown);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Event_MouseMove);
-            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Event_MouseUp);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.MinBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MinPic)).EndInit();
-            this.CloseBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ClosePic)).EndInit();
+            this.PN_Top.ResumeLayout(false);
+            this.PN_Top.PerformLayout();
             this.WebBrowserpnl.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -726,14 +649,10 @@ namespace SKYNET
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PN_Top;
         private System.Windows.Forms.Button acceptBtn;
         private System.Windows.Forms.WebBrowser Browser;
-        private System.Windows.Forms.Panel CloseBox;
-        private System.Windows.Forms.PictureBox ClosePic;
         private System.Windows.Forms.Panel WebBrowserpnl;
-        private System.Windows.Forms.Panel MinBox;
-        private System.Windows.Forms.PictureBox MinPic;
         public System.Windows.Forms.Label tittleLbl;
         private System.Windows.Forms.Label StatusLabel;
         private System.Windows.Forms.Label CountryLabel;
@@ -749,27 +668,27 @@ namespace SKYNET
         private System.ComponentModel.BackgroundWorker pingWorker;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
-        private FlatButton SetPower;
+        private SKYNET_Button SetPower;
         private HackerProd.Controles.HackTrackBar PowerBar;
         private System.Windows.Forms.Panel panel4;
-        private FlatButton SetChannel;
+        private SKYNET_Button SetChannel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label CurrentPower;
         private System.Windows.Forms.PictureBox DeviceLogo;
-        private FlatButton RebootDevice;
-        private FlatButton addCT;
+        private SKYNET_Button RebootDevice;
+        private SKYNET_Button addCT;
         private System.Windows.Forms.Panel panel3;
-        private FlatButton Cambiar;
+        private SKYNET_Button Cambiar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel6;
-        private FlatButton Buscar;
-        private FlatButton Stations;
+        private SKYNET_Button Buscar;
+        private SKYNET_Button Stations;
         private System.Windows.Forms.Panel panel7;
         public LoginBox username;
         private System.Windows.Forms.Panel panel8;
-        private FlatComboBox ChannelList;
+        private SKYNET_ComboBox ChannelList;
     }
 }

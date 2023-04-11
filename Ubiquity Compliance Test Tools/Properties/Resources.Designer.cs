@@ -73,6 +73,16 @@ namespace SKYNET.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close {
+            get {
+                object obj = ResourceManager.GetObject("close", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap close11 {
             get {
                 object obj = ResourceManager.GetObject("close11", resourceCulture);
@@ -153,9 +163,29 @@ namespace SKYNET.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap minimise {
+            get {
+                object obj = ResourceManager.GetObject("minimise", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap networking_manager_100px {
             get {
                 object obj = ResourceManager.GetObject("networking_manager_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SearchPing {
+            get {
+                object obj = ResourceManager.GetObject("SearchPing", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

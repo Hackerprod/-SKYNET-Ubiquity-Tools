@@ -22,18 +22,21 @@ D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Complian
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\bin\Debug\[SKYNET] Ubiquity Tools.pdb
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SkynetChat.Controles.BoxTool.resources
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\DeviceView.Devices.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmDevice.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmConnection.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmSearch.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmComplianceTest.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmDiscovery.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmManager.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.frmMain.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\frmMessage.resources
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.Properties.Resources.resources
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\[SKYNET] Ubiquity Tools.csproj.GenerateResource.cache
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\[SKYNET] Ubiquity Tools.csproj.CoreCompileInputs.cache
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\[SKYNET] Ubiquity Tools.exe
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\[SKYNET] Ubiquity Tools.pdb
 D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.LoginBox.resources
-D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\[SKYNET] Ubiquity Tools.csproj.AssemblyReference.cache
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\[SKYNET] Ubiquity Tools.csprojAssemblyReference.cache
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.Controls.SKYNET_TextBox.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmBase.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmDevice.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmConnection.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmSearch.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmComplianceTest.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmDiscovery.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmManager.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmMain.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.GUI.frmMessage.resources
+D:\Instaladores\Programación\Projects\[SKYNET] Ubiquity Tools\Ubiquity Compliance Test Tools\obj\Debug\SKYNET.Controls.SKYNET_Box.resources
